@@ -8,8 +8,7 @@ const getAllActivitiesHandler = async (req,res) => {
     } catch (error) {
         res.status(400).send({error:error.message})
     }
-            
-    
+        
 }
 
 const postNewActivityHandler = async (req, res) => {

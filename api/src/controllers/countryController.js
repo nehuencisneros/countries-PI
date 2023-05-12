@@ -26,8 +26,14 @@ let getAllCountriesInfo = async () => {
         await Country.bulkCreate(allCountriesApi)
     }
 
-    allData = await Country.findAll({
-        include : [Activity]
+    allData = await Country.findAll({        
+        include : {
+            model: Activity,
+            attributes: [ "name", "difficulty", "duration", "season"],
+            through: {
+                attributes:[],
+            }
+        }
     });
 
     return allData;
@@ -45,7 +51,13 @@ const getCountryById = async (id) => {
 
     const idCountry = await Country.findByPk(
         id,
-        { include : [Activity] }
+        { include : {
+            model: Activity,
+            attributes: [ "name", "difficulty", "duration", "season"],
+            through: {
+                attributes:[],
+            }
+        }}
     );
 
     if(idCountry){
@@ -63,9 +75,9 @@ const getCountryByName = async (name) => {
         where: {
             name: {
                 [Op.iLike] : `%${name}%`
-            },
-        include : [Activity]
-        }
+            }
+        },
+        include : [Activity] 
     });
 
     if(nameCountry){
