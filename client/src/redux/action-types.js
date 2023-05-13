@@ -1,0 +1,8 @@
+export const GET_COUNTRIES = "GET_COUNTRIES"
+export const POST_ACTIVITY = "POST_ACTIVITY"
+export const NEXT_PAGE = "NEXT_PAGE"
+export const PREV_PAGE = "PREV_PAGE"
+export const GET_COUNTRY = "GET_COUNTRY"
+export const GET_COUNTRY_BY_NAME = "GET_COUNTRY_BY_NAME"
+export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT"
+export const ORDER_BY_NAME = "ORDER_BY_NAME"
