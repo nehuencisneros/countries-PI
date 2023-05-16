@@ -70,7 +70,6 @@ module.exports = {
     // // allActivities[0].dataValues.countries.forEach((value, index) => {
     // //     value[index] = array[index]
     // // })  
-  
     
     // //
     // // console.log(objeto)

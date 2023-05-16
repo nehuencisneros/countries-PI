@@ -1,19 +1,21 @@
-import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import LandingPage from './components/LandingPage';
+import { Home, LandingPage, Form, Detail } from "./views"
+import NavBar from "./components/NavBar/NavBar";
+import { Route, Switch, useLocation } from 'react-router-dom';
+
 
 function App() {
+  const location = useLocation()
+
   return (
-    <BrowserRouter>
-    
       <div className="App">
-        <h1>Countries App</h1>
-        <Route exact path='/'>
-          <LandingPage/>
-        </Route>
-      
+        {location.pathname !== "/" && <NavBar/>}
+          <Switch>
+            <Route exact path = "/" render={() => <LandingPage/>}/>
+            <Route exact path = "/home" render={() => <Home/>}/>
+            <Route exact path = "/detail" render={() => <Detail/>}/>
+            <Route exact path = "/create" render={() => <Form/>}/>
+          </Switch>
       </div>
-    </BrowserRouter>
   );
 }
 
