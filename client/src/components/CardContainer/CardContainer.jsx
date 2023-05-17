@@ -10,10 +10,10 @@ const CardContainer = () => {
             {countries.map(country => {
                 return <Card
                     id={country.id}
+                    flag={country.flag}
                     name={country.name}
-                    capital={country.capital}
-                    population={country.population}
-					flag={country.flag}
+                    continent={country.continent}
+					
                 />
             })}
         </div>

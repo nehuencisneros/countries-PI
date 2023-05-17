@@ -16,7 +16,7 @@ export const getAllCountries = () => {
         const apiData = await axios.get(URL_COUNTRIES);
         const countries = apiData.data;
         dispatch({
-            type: GET_COUNTRY_BY_NAME,
+            type: GET_ALL_COUNTRIES,
             payload: countries
         })
     }

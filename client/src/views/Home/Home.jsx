@@ -6,9 +6,11 @@ import { getAllCountries } from "../../redux/actions";
 const Home = () => {
     const dispatch = useDispatch();
 
+    
+
     useEffect(()=>{
         dispatch(getAllCountries())
-    },[dispatch]);
+    },[]);
 
     return (
         <>

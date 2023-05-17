@@ -1,12 +1,17 @@
 .flag {
-    max-width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width:100px;
     height: 60px;
-    
 }
 
+
+
 .card{
+    text-align: center;
+    background-color: rgb(26, 83, 107);
     border: 1px solid darkgrey;
-    width: fit-content;
+    width: 160px;
     height: 300px;
     border-radius: 10px;
     padding: 5px;

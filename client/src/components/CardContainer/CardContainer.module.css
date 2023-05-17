@@ -1,8 +1,10 @@
 
+
+
 .container{
-    border: 1px solid rgb(182, 121, 203);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    background-color: rgb(77, 123, 176);
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;    
     gap: 2rem;
     min-height: 70vh;
     height: 100%;
@@ -13,4 +15,5 @@
     padding-top: 40px;
     padding-bottom: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
