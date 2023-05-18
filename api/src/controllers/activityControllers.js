@@ -54,9 +54,6 @@ module.exports = {
     getAllActivities,
     createNewActivity,
 }
-
-
-
     // const array = []
     // //console.log(allActivities)
     // //console.log(allActivities)

@@ -1,0 +1,7 @@
+.paginate{
+    background-color: rgb(58, 58, 82);
+    
+    display: flex;
+    justify-content:center;
+    align-items: flex-end
+}

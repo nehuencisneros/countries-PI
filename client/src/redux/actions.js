@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_ALL_COUNTRIES,
-    // GET_ALL_ACTIVITIES,
-    // POST_ACTIVITY,
+    GET_ALL_ACTIVITIES,
+    POST_ACTIVITY,
     // GET_COUNTRY_BY_ID,
     GET_COUNTRY_BY_NAME,
     // FILTER_BY_CONTINENT,
@@ -38,7 +38,27 @@ export const getCountryById = (id) => {
     
 }
 
+export const postActivity = (newActivity) => {
+    return async function (dispatch){
+        const apiData = await axios.post(URL_ACTIVITIES, newActivity)
+        const activities = apiData.data
+        dispatch({
+            type: GET_ALL_ACTIVITIES,
+            payload: activities
+        })
+    }
+    
+}
+
 export const getAllActivities = () => {
+    return async function (dispatch){
+        const apiData = await axios.get(URL_ACTIVITIES)
+        const activity = apiData.data
+        dispatch({
+            type: POST_ACTIVITY,
+            payload:activity
+        })
+    }
     
 }
 

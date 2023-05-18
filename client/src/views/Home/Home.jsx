@@ -2,19 +2,19 @@ import CardContainer from "../../components/CardContainer/CardContainer";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllCountries } from "../../redux/actions";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
     const dispatch = useDispatch();
-
-    
 
     useEffect(()=>{
         dispatch(getAllCountries())
     },[]);
 
+
     return (
         <>
-            <h1>esta es la vista de home</h1>
+            <SearchBar/> 
             <CardContainer/>
         </>
     )

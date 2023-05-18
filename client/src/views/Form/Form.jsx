@@ -7,7 +7,7 @@ const Form = () => {
         difficulty: "",
         duration: "",
         season:"",
-        country: ""
+        country: []
     })
 
     const handlerChange = (event) => {
@@ -19,6 +19,7 @@ const Form = () => {
 
     const handlerSubmit = (event) => {
         event.preventDefault()
+        dispatchEvent()
     }
 
     return (
@@ -49,12 +50,18 @@ const Form = () => {
 
             <div>
                 <label>estacion:  </label>
-                <input></input>
+                <input type="text" 
+                value={newActivity.season} 
+                onChange={handlerChange}
+                name="season"></input>
             </div>
 
             <div>
                 <label>pais:     </label>
-                <input></input>
+                <input type="text" 
+                value={newActivity.country} 
+                onChange={handlerChange}
+                name="country"></input>
             </div>
 
             <button type="submit">crear</button>
