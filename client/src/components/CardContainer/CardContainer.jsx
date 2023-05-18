@@ -5,13 +5,13 @@ import Paginate from "../Paginate/Paginate";
 import React, { useState } from "react";
 
 const CardContainer = () => {
-	const allCountries = useSelector(state => state.countries)
+	const countries = useSelector((state) => state.countries);
 
     const [currentPage, setCurrentPage] = useState(1)
     const [countriesPage, setCountriesPage] = useState(12)
     const indexLastCountry = currentPage * countriesPage
     const indexFirstCountry = indexLastCountry - countriesPage
-    const currentCountries = allCountries.slice(indexFirstCountry, indexLastCountry);
+    const currentCountries = countries.slice(indexFirstCountry, indexLastCountry);
     
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -36,7 +36,7 @@ const CardContainer = () => {
             </div>
             <Paginate 
                     countriesPage={countriesPage}
-                    allCountries={allCountries.length}
+                    allCountries={countries.length}
                     paginate = {paginate}
             />
         </div>

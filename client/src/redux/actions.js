@@ -4,7 +4,7 @@ import { GET_ALL_COUNTRIES,
     POST_ACTIVITY,
     // GET_COUNTRY_BY_ID,
     GET_COUNTRY_BY_NAME,
-    // FILTER_BY_CONTINENT,
+    FILTER_BY_CONTINENT,
     // ORDER_BY_NAME
 } from './action-types';
 
@@ -34,10 +34,6 @@ export const getCountryByName = (name) => {
     
 }
 
-export const getCountryById = (id) => {
-    
-}
-
 export const postActivity = (newActivity) => {
     return async function (dispatch){
         const apiData = await axios.post(URL_ACTIVITIES, newActivity)
@@ -60,5 +56,12 @@ export const getAllActivities = () => {
         })
     }
     
+}
+
+export const filterCountriesByContinent = (payload) => {
+    return {
+        type: FILTER_BY_CONTINENT,
+        payload
+    }
 }
 

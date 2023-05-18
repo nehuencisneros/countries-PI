@@ -5,8 +5,17 @@ const Paginate = ({countriesPage, allCountries, paginate}) => {
     const pageNumbers = [];
 
     for(let i = 0; i <= Math.ceil(allCountries/countriesPage); i++){
-        pageNumbers.push(i)
+        if(i === (Math.ceil(allCountries/countriesPage)-1)){
+            pageNumbers.push(i+1)
+            break
+        } else {
+        pageNumbers.push(i+1)
+        }
     }
+    
+    
+
+    
 
     return(
         <nav>

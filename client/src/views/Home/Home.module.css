@@ -1,0 +1,15 @@
+.block{
+    display:flex;
+    
+}
+
+.filtersBlock{
+    justify-content:flex-start;
+    width: 20%;
+    flex-direction: column
+}
+
+.cardContainerBlock{
+    justify-content:flex-end;
+    
+}
