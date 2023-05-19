@@ -2,26 +2,25 @@ import { GET_ALL_COUNTRIES,
     POST_ACTIVITY, 
     GET_ALL_ACTIVITIES,
     GET_COUNTRY_BY_NAME,
-    FILTER_BY_CONTINENT } from "./action-types"
+    FILTER_BY_CONTINENT, 
+    ALPHABETIC_ORDER,
+    POPULATION_ORDER,
+    FILTER_STATE} from "./action-types"
 
 const initialState = {
     allCountries: [],
     activities: [],
-    countries:[]
+    countries:[],
+    //filter: []
 }
 
 const rootReducer = (state = initialState, action) => {
     switch(action.type) {
         case GET_ALL_COUNTRIES:
-            return {...state,
+            return {
+                ...state,
                 allCountries: action.payload,
                 countries: action.payload};
-
-        case POST_ACTIVITY:
-            return {...state};
-            
-        case GET_ALL_ACTIVITIES:
-            return {...state, activities: action.payload};
 
         case FILTER_BY_CONTINENT:
             const allCountries = state.allCountries
@@ -31,7 +30,53 @@ const rootReducer = (state = initialState, action) => {
             const filterCountries = allCountries.filter(element =>
                 element.continent === action.payload)
             
-            return {...state, countries: filterCountries};
+            return {
+                ...state, 
+                countries: filterCountries};
+
+        case ALPHABETIC_ORDER:
+            let alphaOrder = state.countries
+            if(action.payload === "from A to Z"){
+                alphaOrder = alphaOrder.sort((a,b) => {
+                    if(a.name > b.name){ return 1; }
+                    if(a.name < b.name){ return -1; }
+                    return 0;
+                })
+            } else {
+                alphaOrder = alphaOrder.sort((a,b) => {
+                    if(a.name > b.name){ return -1; }
+                    if(a.name < b.name){ return 1; }
+                    return 0;
+                })
+            }
+            return {
+                ...state,
+                countries: alphaOrder};
+
+        case POPULATION_ORDER:
+            let popuOrder = state.countries
+            if(action.payload === "Descendent"){
+                popuOrder = popuOrder.sort((a,b) => {
+                    if(a.population > b.population){ return 1; }
+                    if(a.population < b.population){ return -1; }
+                    return 0;
+                })
+            } else {
+                popuOrder = popuOrder.sort((a,b) => {
+                    if(a.population > b.population){ return -1; }
+                    if(a.population < b.population){ return 1; }
+                    return 0;
+                })
+            }
+            return {
+                ...state,
+                countries: popuOrder};
+
+        case POST_ACTIVITY:
+            return {...state};
+            
+        case GET_ALL_ACTIVITIES:
+            return {...state, activities: action.payload};
 
         default:
             return {...state};
@@ -43,3 +88,16 @@ const rootReducer = (state = initialState, action) => {
 
 
 export default rootReducer;
+
+
+        // case FILTER_STATE:
+        //     let newFilterState = state.filter
+        //     if(newFilterState.length > 1){
+        //         newFilterState.shift()
+        //     } else {
+        //         newFilterState.push("aux")
+        //     }
+        //     return{
+        //         ...state,
+        //         filter: newFilterState
+        //     }

@@ -1,22 +1,30 @@
 import Card from "../Card/Card";
 import style from "./CardContainer.module.css"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Paginate from "../Paginate/Paginate";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getAllCountries} from "../../redux/actions"
 
 const CardContainer = () => {
+    const dispatch = useDispatch();
 	const countries = useSelector((state) => state.countries);
+    const dependencia = useSelector(state => state)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [countriesPage, setCountriesPage] = useState(12)
+    const [countriesPage, setCountriesPage] = useState(10)
     const indexLastCountry = currentPage * countriesPage
     const indexFirstCountry = indexLastCountry - countriesPage
-    const currentCountries = countries.slice(indexFirstCountry, indexLastCountry);
+    const currentCountries = countries.slice(indexFirstCountry, indexLastCountry);   
     
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
+    
+    useEffect(()=>{
+        dispatch(getAllCountries(countries))
+    },[dispatch]);
 
+    
     return(
         <div>
             <div className={style.container}>

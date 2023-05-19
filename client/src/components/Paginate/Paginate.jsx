@@ -13,10 +13,6 @@ const Paginate = ({countriesPage, allCountries, paginate}) => {
         }
     }
     
-    
-
-    
-
     return(
         <nav>
             <ul className={style.paginate}>

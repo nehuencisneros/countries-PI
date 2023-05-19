@@ -15,7 +15,7 @@ let getAllCountriesInfo = async () => {
                     id: apiCountry.cca3,
                     name: apiCountry.name.common,
                     flag: apiCountry.flags[1],
-                    continent: apiCountry.continents[0],
+                    continent: apiCountry.region,
                     capital: apiCountry.capital ? apiCountry.capital[0] : 'Undefined capital city',
                     subregion: apiCountry.subregion ? apiCountry.subregion : 'Undefinded Subregion',
                     area: apiCountry.area,

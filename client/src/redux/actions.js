@@ -2,11 +2,12 @@ import axios from 'axios';
 import { GET_ALL_COUNTRIES,
     GET_ALL_ACTIVITIES,
     POST_ACTIVITY,
-    // GET_COUNTRY_BY_ID,
+    GET_COUNTRY_BY_ID,
     GET_COUNTRY_BY_NAME,
     FILTER_BY_CONTINENT,
-    // ORDER_BY_NAME
-} from './action-types';
+    ALPHABETIC_ORDER,
+    POPULATION_ORDER,
+    FILTER_STATE } from './action-types';
 
 const URL_COUNTRIES = "http://localhost:3001/countries"
 const URL_ACTIVITIES = "http://localhost:3001/activities"
@@ -22,6 +23,33 @@ export const getAllCountries = () => {
     }
 }
 
+export const filterCountriesByContinent = (payload) => {
+    return {
+        type: FILTER_BY_CONTINENT,
+        payload
+    }
+}
+
+export const alphabeticOrder = (payload) => {
+    return {
+        type: ALPHABETIC_ORDER,
+        payload
+    }
+}
+
+export const populationOrder = (payload) => {
+    return {
+        type: POPULATION_ORDER,
+        payload
+    }
+}
+
+export const stateFilter = () => {
+    return{
+        type: FILTER_STATE
+    }
+}
+
 export const getCountryByName = (name) => {
     return async function (dispatch) {
         const countryData = await axios.get(`${URL_COUNTRIES}?name=${name}`);
@@ -31,7 +59,6 @@ export const getCountryByName = (name) => {
             payload: country
         })
     }
-    
 }
 
 export const postActivity = (newActivity) => {
@@ -43,7 +70,6 @@ export const postActivity = (newActivity) => {
             payload: activities
         })
     }
-    
 }
 
 export const getAllActivities = () => {
@@ -55,13 +81,4 @@ export const getAllActivities = () => {
             payload:activity
         })
     }
-    
 }
-
-export const filterCountriesByContinent = (payload) => {
-    return {
-        type: FILTER_BY_CONTINENT,
-        payload
-    }
-}
-
