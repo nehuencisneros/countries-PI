@@ -14,14 +14,54 @@ const URL_ACTIVITIES = "http://localhost:3001/activities"
 
 export const getAllCountries = () => {
     return async function (dispatch) {
-        const apiData = await axios.get(URL_COUNTRIES);
-        const countries = apiData.data;
-        dispatch({
-            type: GET_ALL_COUNTRIES,
-            payload: countries
-        })
+        try {
+            const apiData = await axios.get(URL_COUNTRIES);
+            const countries = apiData.data;
+
+            dispatch({
+                type: GET_ALL_COUNTRIES,
+                payload: countries})
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
+
+
+export const getCountryByName = (name) => {
+    return async function (dispatch) {
+        try {
+            const countryData = await axios.get(`${URL_COUNTRIES}?name=${name}`);
+            const country = countryData.data;
+
+            dispatch({
+                type: GET_COUNTRY_BY_NAME,
+                payload: country});
+
+        } catch (error) {
+            alert("country not found")
+        }
+    }
+}
+
+
+export const getCountryById = (id) => {
+    return async function (dispatch) {
+        try {
+            const countryData = await axios.get(`${URL_COUNTRIES}/${id}`);
+            const country = countryData.data;
+
+            dispatch({
+                type: GET_COUNTRY_BY_ID,
+                payload: country});
+
+        } catch (error) {
+            alert("country not found")
+        }
+    }
+}
+
 
 export const filterCountriesByContinent = (payload) => {
     return {
@@ -30,12 +70,14 @@ export const filterCountriesByContinent = (payload) => {
     }
 }
 
+
 export const alphabeticOrder = (payload) => {
     return {
         type: ALPHABETIC_ORDER,
         payload
     }
 }
+
 
 export const populationOrder = (payload) => {
     return {
@@ -44,31 +86,23 @@ export const populationOrder = (payload) => {
     }
 }
 
+
 export const stateFilter = () => {
     return{
         type: FILTER_STATE
     }
 }
 
-export const getCountryByName = (name) => {
-    return async function (dispatch) {
-        const countryData = await axios.get(`${URL_COUNTRIES}?name=${name}`);
-        const country = countryData.data;
-        dispatch({
-            type: GET_COUNTRY_BY_NAME,
-            payload: country
-        })
-    }
-}
 
 export const postActivity = (newActivity) => {
     return async function (dispatch){
         const apiData = await axios.post(URL_ACTIVITIES, newActivity)
         const activities = apiData.data
-        dispatch({
+
+            dispatch({
             type: GET_ALL_ACTIVITIES,
-            payload: activities
-        })
+            payload: activities})
+        
     }
 }
 

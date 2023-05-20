@@ -7,21 +7,21 @@ import { getAllCountries} from "../../redux/actions"
 
 const CardContainer = () => {
     const dispatch = useDispatch();
-	const countries = useSelector((state) => state.countries);
+	//const countries = useSelector((state) => state.countries);
     const dependencia = useSelector(state => state)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [countriesPage, setCountriesPage] = useState(10)
+    const [countriesPage, setCountriesPage] = useState(12)
     const indexLastCountry = currentPage * countriesPage
     const indexFirstCountry = indexLastCountry - countriesPage
-    const currentCountries = countries.slice(indexFirstCountry, indexLastCountry);   
+    const currentCountries = dependencia.countries.slice(indexFirstCountry, indexLastCountry);   
     
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
     
     useEffect(()=>{
-        dispatch(getAllCountries(countries))
+        dispatch(getAllCountries(dependencia.countries))
     },[dispatch]);
 
     
@@ -44,7 +44,7 @@ const CardContainer = () => {
             </div>
             <Paginate 
                     countriesPage={countriesPage}
-                    allCountries={countries.length}
+                    allCountries={dependencia.countries.length}
                     paginate = {paginate}
             />
         </div>

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import { useDispatch,useSelector }  from "react-redux"
+import React, { useState } from "react"
+import { useDispatch }  from "react-redux"
 import { filterCountriesByContinent, alphabeticOrder, populationOrder, stateFilter} from "../../redux/actions"
 import style from "./Filters.module.css"
 
@@ -10,15 +10,12 @@ const Filters = () => {
     const handlerContinent = (event) => {
         
         dispatch(filterCountriesByContinent(event.target.value))
-        //dispatch(stateFilter())
         setCurrentPage(1)
-        
     }
 
     const handlerAlphabetic = (event) => {
 
-        dispatch(alphabeticOrder(event.target.value))
-        //dispatch(stateFilter())    
+        dispatch(alphabeticOrder(event.target.value))   
         setCurrentPage(1) 
     }
 
