@@ -1,19 +1,19 @@
-
-
-
 .container{
     background-color: rgb(77, 123, 176);
     border: 1px solid rgb(0, 0, 0);
     display: flex;    
     gap: 2rem;
-    min-height: 70vh;
-    height: 100%;
     margin-left: 20px;
     margin-right: 20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 40px;
     padding-bottom: 20px;
-    justify-content:flex-end;
+    justify-content:center;
     flex-wrap: wrap;
+}
+
+.filters{
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

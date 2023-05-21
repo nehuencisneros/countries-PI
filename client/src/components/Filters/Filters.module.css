@@ -1,25 +1,25 @@
 .filters{
     display: flex;
-    flex-direction: column;
-    /* justify-content: space-evenly; */
     border-radius: 10%;
+    justify-content:space-around;
+}
+
+.searchBar{
+    justify-content:center;
+
 }
 
 .alphabetic{
-    margin-left: 20px;
-    
-    margin-block: 15%;
+    display: flex;
     justify-content:center;
 }
 
 .continents{
-    
-    margin-left: 20px;
-    margin-block: 15%;
+    display: flex;
+    justify-content:center;
 }
 
 .population{
-    
-    margin-left: 20px;
-    margin-block: 15%;
+    display: flex;
+    justify-content:center;
 }

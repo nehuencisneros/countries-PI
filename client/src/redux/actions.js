@@ -34,7 +34,7 @@ export const getCountryByName = (name) => {
         try {
             const countryData = await axios.get(`${URL_COUNTRIES}?name=${name}`);
             const country = countryData.data;
-
+            
             dispatch({
                 type: GET_COUNTRY_BY_NAME,
                 payload: country});
@@ -51,13 +51,13 @@ export const getCountryById = (id) => {
         try {
             const countryData = await axios.get(`${URL_COUNTRIES}/${id}`);
             const country = countryData.data;
-
+            console.log(country)
             dispatch({
                 type: GET_COUNTRY_BY_ID,
                 payload: country});
 
         } catch (error) {
-            alert("country not found")
+            console.log(error)
         }
     }
 }

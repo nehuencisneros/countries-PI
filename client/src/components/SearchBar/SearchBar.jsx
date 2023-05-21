@@ -16,7 +16,6 @@ const SearchBar = () => {
         event.preventDefault()
         dispatch(getCountryByName(countryName))
         setCountryName("")
-        history.push('/detail')
     }
 
     return(

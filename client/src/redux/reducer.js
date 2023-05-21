@@ -83,7 +83,7 @@ const rootReducer = (state = initialState, action) => {
         case GET_COUNTRY_BY_NAME:
             return{
             ...state,
-            country: action.payload};
+            countries: action.payload};
 
 
         case GET_COUNTRY_BY_ID:

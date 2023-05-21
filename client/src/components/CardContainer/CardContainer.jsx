@@ -1,17 +1,19 @@
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom"
 import Card from "../Card/Card";
 import style from "./CardContainer.module.css"
-import { useSelector, useDispatch } from "react-redux";
 import Paginate from "../Paginate/Paginate";
-import React, { useState, useEffect } from "react";
+import Filters from "../Filters/Filters";
 import { getAllCountries} from "../../redux/actions"
 
 const CardContainer = () => {
     const dispatch = useDispatch();
-	//const countries = useSelector((state) => state.countries);
     const dependencia = useSelector(state => state)
+    const location = useLocation()
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [countriesPage, setCountriesPage] = useState(12)
+    const [countriesPage] = useState(12)
     const indexLastCountry = currentPage * countriesPage
     const indexFirstCountry = indexLastCountry - countriesPage
     const currentCountries = dependencia.countries.slice(indexFirstCountry, indexLastCountry);   
@@ -27,21 +29,24 @@ const CardContainer = () => {
     
     return(
         <div>
-            <div className={style.container}>
-                
-            
-                {currentCountries.map(country => {
-                    return <Card
-                        id={country.id}
-                        flag={country.flag}
-                        name={country.name}
-                        continent={country.continent}
-                        
-                    />
-                })}
-
-                
+            <div className={style.filters}>
+                {location.pathname === "/home" && <Filters/>}    
             </div>
+            <div className={style.container}>
+                {currentCountries.map(country => {
+                    return( 
+                        <Link to={`/home/${country.id}`} >
+                            <Card
+                                key={country.id}
+                                flag={country.flag}
+                                name={country.name}
+                                continent={country.continent}
+                            />
+                        </Link>
+                    )
+                })}
+            </div>
+
             <Paginate 
                     countriesPage={countriesPage}
                     allCountries={dependencia.countries.length}
