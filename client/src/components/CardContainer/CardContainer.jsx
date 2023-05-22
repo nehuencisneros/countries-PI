@@ -13,7 +13,7 @@ const CardContainer = () => {
     const location = useLocation()
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [countriesPage] = useState(12)
+    const [countriesPage] = useState(10)
     const indexLastCountry = currentPage * countriesPage
     const indexFirstCountry = indexLastCountry - countriesPage
     const currentCountries = dependencia.countries.slice(indexFirstCountry, indexLastCountry);   
@@ -21,6 +21,8 @@ const CardContainer = () => {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
+
+    console.log(currentCountries.length)
     
     useEffect(()=>{
         dispatch(getAllCountries(dependencia.countries))
@@ -28,14 +30,15 @@ const CardContainer = () => {
 
     
     return(
-        <div>
+        <div classname={style.containerCard}>            
             <div className={style.filters}>
                 {location.pathname === "/home" && <Filters/>}    
             </div>
+            
             <div className={style.container}>
                 {currentCountries.map(country => {
                     return( 
-                        <Link to={`/home/${country.id}`} >
+                        <Link className={style.link} to={`/home/${country.id}`} >
                             <Card
                                 key={country.id}
                                 flag={country.flag}
@@ -46,12 +49,14 @@ const CardContainer = () => {
                     )
                 })}
             </div>
-
             <Paginate 
                     countriesPage={countriesPage}
                     allCountries={dependencia.countries.length}
-                    paginate = {paginate}
+                    paginate={paginate}
+                    currentpage={currentPage}
             />
+
+            
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch }  from "react-redux"
 import { alphabeticOrder} from "../../../redux/actions"
+import style from "./Selects.module.css"
 
 const AlphabeticOrder = () => {
 
@@ -13,8 +14,8 @@ const AlphabeticOrder = () => {
     }
 
     return(
-        <select onChange={handlerAlphabetic}>
-            <option value="Alphabetic Order">Alphabetic Order</option>
+        <select className={style.selectAlphaPopu} onChange={handlerAlphabetic}>
+            <option value="Alphabetic Order ">Alphabetic Order</option>
             <option value="from A to Z">from A to Z</option>
             <option value="from Z to A">from Z to A</option>
         </select>

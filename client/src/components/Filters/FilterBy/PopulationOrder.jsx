@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch }  from "react-redux"
 import { populationOrder} from "../../../redux/actions"
+import style from "./Selects.module.css"
 
 const PopulationOrder = () => {
     
@@ -13,7 +14,7 @@ const PopulationOrder = () => {
     }
 
     return(
-        <select onChange={handlePopulation}>
+        <select className={style.selectAlphaPopu} onChange={handlePopulation}>
             <option value="Population Order">Population Order</option>
             <option value="Ascendent">from (↑) to (↓)</option>
             <option value="Descendent">from (↓) to (↑)</option>

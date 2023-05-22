@@ -94,14 +94,14 @@ export const stateFilter = () => {
 }
 
 
-export const postActivity = (newActivity) => {
+export const createActivity = (newActivity) => {
     return async function (dispatch){
         const apiData = await axios.post(URL_ACTIVITIES, newActivity)
-        const activities = apiData.data
+        const activity = apiData.data
 
             dispatch({
-            type: GET_ALL_ACTIVITIES,
-            payload: activities})
+            type: POST_ACTIVITY,
+            payload: activity})
         
     }
 }

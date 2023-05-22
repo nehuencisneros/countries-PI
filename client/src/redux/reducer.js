@@ -93,7 +93,8 @@ const rootReducer = (state = initialState, action) => {
 
 
         case POST_ACTIVITY:
-            return {...state};
+            return {
+                    ...state};
 
 
         case GET_ALL_ACTIVITIES:

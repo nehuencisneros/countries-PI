@@ -1,21 +1,38 @@
 .flag {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width:100px;
-    height: 60px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    /* margin-bottom: 5px; */
+    width: 300px;
+    height: 200px;
+    border-bottom: 1px solid rgb(128, 128, 128);
 }
 
-.card{
-    text-align: center;
-    background-color: rgb(26, 83, 107);
-    border: 1px solid darkgrey;
-    width: 160px;
-    height: 250px;
+.card {
+    background-color: #C4DAFA;
+    /* border: 1px solid darkgrey; */
+    width: 300px;
+    height: 350px;
+    border: 2px solid black;
     border-radius: 10px;
-    padding: 25px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.301);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.301);
-    background-color: rgb(132, 165, 173);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.76);
+    background-color: white;
+}
+
+.titulo {
+    color: black;
+    text-align: center;
+    margin: 0px;
+}
+
+.continente {
+    color: black;
+    text-align: center;
+    margin: 0 0 30px 0;
 }

@@ -1,9 +1,9 @@
 .mainContainer{
     display: flex;
     flex-direction: row;
-    background-color: rgb(21, 121, 139);
+    background-color: #84B6F4;
     justify-content: space-around;
-    border-radius: 15px;
-    border: 1px solid rgb(31, 55, 110);
+    height: 6vh;
+    /* border: 1px solid rgb(31, 55, 110); */
     
 }

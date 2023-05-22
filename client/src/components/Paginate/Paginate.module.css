@@ -1,7 +1,31 @@
 .paginate{
-    background-color: rgb(58, 58, 82);
-    
     display: flex;
     justify-content:center;
-    align-items: flex-end
+    align-items: flex-end;
+    padding-bottom: 15px;
 }
+
+.botoncito{
+    height: 2em;
+    width: 2em;
+    color:black;
+    background-color:  #c4dafa;
+    float: left;
+    border: 1px solid transparent;
+}
+
+.botoncito:hover{
+    background-color: white;
+    box-shadow: 1px 1px 1px 0 #005187;
+}
+
+.botoncitoSelected{
+    height: 2em;
+    width: 2em;
+    border-radius: 15%;
+    color:white;
+    background-color: #005187;
+    float: left;
+    border: 1px solid #005187;
+}
+

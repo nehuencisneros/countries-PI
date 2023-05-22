@@ -3,6 +3,7 @@ import Card from "../../components/Card/Card";
 import { getCountryById, getCountryByName } from "../../redux/actions";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import NavBar from "../../components/NavBar/NavBar";
 
 const Detail = () => {
     const country = useSelector((state) => state.country);
@@ -18,16 +19,10 @@ const Detail = () => {
 
     return (
         <div>
-    
-            <h1>esta es la vista de Detail</h1>
-
-            {  country ?     
-                <h1>id={country.id}</h1> : <h1>country no esta</h1>
-                            
-                            // flag={country.flag}
-                        // name={country.name}
-                        // continent={country.continent}
-                        
+            <NavBar></NavBar>
+            {  country.length !== 0 ?
+                <h1>{country.name}</h1> : <h1>el pais no existe</h1>
+                
                 
                 }
         </div>

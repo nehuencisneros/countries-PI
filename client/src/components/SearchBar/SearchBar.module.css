@@ -1,0 +1,11 @@
+.inputSearchBar {
+    height: 3em;
+    width: 20em;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+}
+
+.inputSearchBar:focus {
+    border: none;
+}
