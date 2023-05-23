@@ -1,9 +1,60 @@
 .mainContainer{
     display: flex;
     flex-direction: row;
-    background-color: #84B6F4;
+    background-color: #4d82bc;
     justify-content: space-around;
-    height: 6vh;
-    /* border: 1px solid rgb(31, 55, 110); */
+    height: 4em;
+    align-items:center
+}
+
+.mainContainer:hover{
+    background-color: #c4dafa;
+}
+
+.botonHome{
     
+    transition-duration: 0.2s;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 25px;
+    justify-content: flex-start;
+    height: 1.5em;
+    width: 9em;
+}
+
+.botonHome:hover {
+    background-color: #4d82bc;
+    color: white;
+}
+
+.botonActivities{
+    
+    transition-duration: 0.2s;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 25px;
+    justify-content: center;
+    height: 1.5em;
+    width: 8em;
+}
+
+.botonActivities:hover {
+    background-color: #4d82bc;
+    color: white;
+}
+
+.botonForm{
+
+    transition-duration: 0.2s;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 25px;
+    justify-content: flex-end;
+    height: 1.5em;
+    width: 8em;
+}
+
+.botonForm:hover {
+    background-color: #4d82bc; /* Green */
+    color: white;
 }

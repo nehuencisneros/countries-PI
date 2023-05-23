@@ -6,7 +6,7 @@
     border-top-left-radius: 5px;
     text-align: center;
     font-size: 20px;
-    
+    border: solid 1px #005187;
 }
 
 .selectAlphaPopu {
@@ -17,6 +17,7 @@
     border-top-left-radius: 5px;
     text-align: center;
     font-size: 15px;
+    border: solid 1px #005187;
 }
 
 .select:hover {

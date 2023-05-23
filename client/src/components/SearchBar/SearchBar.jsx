@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { getCountryByName } from "../../redux/actions";
-import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css"
 
 const SearchBar = () => {
     const dispatch = useDispatch();
     const [countryName, setCountryName] = useState("");
+    const [currentPage,setCurrentPage] = useState(1)
 
     const handlerSearch = (event) => {
         setCountryName(event.target.value)
@@ -16,6 +16,7 @@ const SearchBar = () => {
         event.preventDefault()
         dispatch(getCountryByName(countryName))
         setCountryName("")
+        setCurrentPage(1)
     }
 
     return(

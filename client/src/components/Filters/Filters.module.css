@@ -1,13 +1,18 @@
 .filters{
     display: flex;
-    border-radius: 10%;
     justify-content:space-around;
     align-items: center;
+    background-color: #84b6f4;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.filters:hover{
+    background-color: #c4dafa;
 }
 
 .searchBar{
     justify-content:center;
-
 }
 
 .alphaPopu{

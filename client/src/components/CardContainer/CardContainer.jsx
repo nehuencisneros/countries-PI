@@ -21,14 +21,11 @@ const CardContainer = () => {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
-
-    console.log(currentCountries.length)
     
     useEffect(()=>{
         dispatch(getAllCountries(dependencia.countries))
     },[dispatch]);
 
-    
     return(
         <div classname={style.containerCard}>            
             <div className={style.filters}>

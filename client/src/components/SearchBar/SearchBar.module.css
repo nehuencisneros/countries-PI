@@ -9,3 +9,7 @@
 .inputSearchBar:focus {
     border: none;
 }
+
+.inputSearchBar:hover {
+    box-shadow: 0px 5px 20px 0 #005187;
+}
