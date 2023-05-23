@@ -1,22 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import style from "./Paginate.module.css"
+import PageNumbers from "./pageNumbers";
 
 const Paginate = ({countriesPage, allCountries, paginate, currentpage}) => {
-    const pageNumbers = [];
-    
-    for(let i = 0; i <= Math.ceil(allCountries/countriesPage); i++){
-        if(i === (Math.ceil(allCountries/countriesPage)-1)){
-            pageNumbers.push(i+1)
-            break
-        } else {
-        pageNumbers.push(i+1)
-        }
-    }
+
+    const arrayPage = PageNumbers(countriesPage, allCountries)
 
     return(
+        
         <nav>
             <ul className={style.paginate}>
-                {pageNumbers && pageNumbers.map(number => (
+                {arrayPage && arrayPage.map(number => (
                         <div key={number}>
                             {currentpage === number ?
                                 <button className={style.botoncitoSelected} onClick={() => paginate(number)}>{number}</button>
@@ -30,6 +25,8 @@ const Paginate = ({countriesPage, allCountries, paginate, currentpage}) => {
             </ul>
         </nav>
     )
+    
 }
 
 export default Paginate
+

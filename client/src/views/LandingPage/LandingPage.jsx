@@ -1,8 +1,12 @@
+import React from "react";
+import style from "./Landing.module.css"
+
 const LandingPage = () => {
     return (
-        <>
-        <h1>esta es la vista de LandingPage</h1>
-        </>
+        <div>
+            <div className={style.landingImage}>
+            </div>
+        </div>
     )
 }
 

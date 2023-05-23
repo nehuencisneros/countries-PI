@@ -163,7 +163,7 @@ const Form = () => {
                             
                         </ul>
                     </div>
-                    {<p>{newActivity.country.length > 0 ? "country selected: " + newActivity.country.map(element => element) + "," + " " : ""}</p>}
+                    {<p>{newActivity.country.length > 0 ? "country selected: " + newActivity.country.map(element => element) + ",": ""}</p>}
 
 
                     <button className={style.button} type="submit">Create activity</button>

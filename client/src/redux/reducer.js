@@ -13,7 +13,8 @@ const initialState = {
     activities: [],
     countries:[],
     country: [],
-    //filter: []
+    filterPrev: 0,
+    filter: 0,
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -37,7 +38,9 @@ const rootReducer = (state = initialState, action) => {
             
             return {
             ...state, 
-            countries: filterCountries};
+            countries: filterCountries,
+            filter: filterCountries.length,
+            filterPrev: state.filter}
 
 
         case ALPHABETIC_ORDER:
@@ -57,7 +60,7 @@ const rootReducer = (state = initialState, action) => {
                 }
             return {
             ...state,
-            countries: alphaOrder};
+            countries: alphaOrder}
 
 
         case POPULATION_ORDER:
@@ -77,13 +80,13 @@ const rootReducer = (state = initialState, action) => {
                 }
             return {
             ...state,
-            countries: popuOrder};
+            countries: popuOrder}
 
 
         case GET_COUNTRY_BY_NAME:
             return{
             ...state,
-            countries: action.payload};
+            countries: action.payload}
 
 
         case GET_COUNTRY_BY_ID:
@@ -111,16 +114,3 @@ const rootReducer = (state = initialState, action) => {
 
 
 export default rootReducer;
-
-
-        // case FILTER_STATE:
-        //     let newFilterState = state.filter
-        //     if(newFilterState.length > 1){
-        //         newFilterState.shift()
-        //     } else {
-        //         newFilterState.push("aux")
-        //     }
-        //     return{
-        //         ...state,
-        //         filter: newFilterState
-        //     }

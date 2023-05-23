@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom"
 import Card from "../Card/Card";
 import style from "./CardContainer.module.css"
 import Paginate from "../Paginate/Paginate";
+import PageNumbers from "../Paginate/pageNumbers";
 import Filters from "../Filters/Filters";
 import { getAllCountries} from "../../redux/actions"
 
@@ -17,14 +18,22 @@ const CardContainer = () => {
     const indexLastCountry = currentPage * countriesPage
     const indexFirstCountry = indexLastCountry - countriesPage
     const currentCountries = dependencia.countries.slice(indexFirstCountry, indexLastCountry);   
+    const cantCountries = dependencia.countries.length
     
-    const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber)
-    }
-    
+    const arrayPages = PageNumbers(countriesPage, cantCountries)
+    const cantPages = arrayPages.length
+
     useEffect(()=>{
         dispatch(getAllCountries(dependencia.countries))
     },[dispatch]);
+
+    if(currentPage > cantPages){
+        setCurrentPage(1)
+    }
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber) 
+    }
 
     return(
         <div classname={style.containerCard}>            
@@ -46,14 +55,12 @@ const CardContainer = () => {
                     )
                 })}
             </div>
-            <Paginate 
+            <Paginate
                     countriesPage={countriesPage}
                     allCountries={dependencia.countries.length}
                     paginate={paginate}
                     currentpage={currentPage}
             />
-
-            
         </div>
     );
 }
