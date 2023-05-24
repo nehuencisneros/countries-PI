@@ -7,7 +7,8 @@ import { GET_ALL_COUNTRIES,
     FILTER_BY_CONTINENT,
     ALPHABETIC_ORDER,
     POPULATION_ORDER,
-    FILTER_STATE } from './action-types';
+    FILTER_STATE, 
+    FILTER_BY_ACTIVITY} from './action-types';
 
 const URL_COUNTRIES = "http://localhost:3001/countries"
 const URL_ACTIVITIES = "http://localhost:3001/activities"
@@ -22,6 +23,22 @@ export const getAllCountries = () => {
                 type: GET_ALL_COUNTRIES,
                 payload: countries})
 
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+
+export const getAllActivities = () => {
+    return async function (dispatch){
+        try {
+            const apiData = await axios.get(URL_ACTIVITIES)
+            const activity = apiData.data
+
+            dispatch({
+                type: GET_ALL_ACTIVITIES,
+                payload:activity})
         } catch (error) {
             console.log(error)
         }
@@ -63,10 +80,19 @@ export const getCountryById = (id) => {
 }
 
 
-export const filterCountriesByContinent = (payload) => {
+export const filterCountriesByContinent = (continent) => {
+
     return {
         type: FILTER_BY_CONTINENT,
-        payload
+        payload: continent
+    }
+}
+
+
+export const filterCountriesByActivities = (activity) => {
+    return {
+        type: FILTER_BY_ACTIVITY,
+        payload: activity
     }
 }
 
@@ -106,13 +132,3 @@ export const createActivity = (newActivity) => {
     }
 }
 
-export const getAllActivities = () => {
-    return async function (dispatch){
-        const apiData = await axios.get(URL_ACTIVITIES)
-        const activity = apiData.data
-        dispatch({
-            type: POST_ACTIVITY,
-            payload:activity
-        })
-    }
-}

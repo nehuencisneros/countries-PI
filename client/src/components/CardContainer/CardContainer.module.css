@@ -10,9 +10,25 @@
     flex-wrap: wrap;
 }
 
+.containerExtend{
+    background-color: #005187;
+    display: flex;    
+    gap: 3rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    justify-content:center;
+    flex-wrap: wrap;
+    height: 73vh;
+}
+
+.containerCard{
+    background-color:#84b6f4
+}
+
 .filters{
-    /* padding-top: 20px;
-    padding-bottom: 20px; */
+    background-color:#84b6f4
 }
 
 .link {

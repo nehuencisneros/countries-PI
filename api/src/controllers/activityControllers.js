@@ -12,31 +12,6 @@ const getAllActivities = async () => {
             }
         }
     })
-    // const array = []
-
-    // let objeto = allActivities[0].dataValues.countries
-
-    // for(let value of objeto){
-    //     array.push(value.dataValues.name)
-    // }
-
-    // allActivities[0].dataValues.countries.forEach((value, index) => {
-    //     value[index] = array[index]
-    // })  
-  
-    
-    //
-    // console.log(objeto)
-    // console.log(allActivities)
-    //const obj = allActivities[0].dataValues.countries
-    //console.log(obj)
-    // const array = []
-    // for(const country in obj){
-    //     console.log(obj)
-    //     array.push(obj[country])
-    // }
-    //console.log(array)
-
     return allActivities
 } 
 

@@ -9,3 +9,17 @@
     justify-content: center;
     align-items: center;
 }
+
+.button{
+    text-decoration: none;
+    font-size: 30px;
+    color: #84b6f4;
+    transition: color .5s;
+}
+
+.button:hover{
+    font-size: 33px;
+    transition: font-size 0.5s;
+    color: #c4dafa;
+    
+}

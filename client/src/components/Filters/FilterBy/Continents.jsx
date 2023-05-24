@@ -15,7 +15,7 @@ const Continents = () => {
     }
 
     return(
-        <select className={style.selectContinent} onChange={handlerContinent}>
+        <select className={style.selects} onChange={handlerContinent}>
             {values?.map((element,index) => {
                 return(
                     <option value={element} key={index}>

@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import Card from "../../components/Card/Card";
-import { getCountryById, getCountryByName } from "../../redux/actions";
+import { getCountryById } from "../../redux/actions";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
+import style from "./Detail.module.css"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 
 const Detail = () => {
     const country = useSelector((state) => state.country);
@@ -20,11 +22,17 @@ const Detail = () => {
     return (
         <div>
             <NavBar></NavBar>
-            {  country.length !== 0 ?
-                <h1>{country.name}</h1> : <h1>el pais no existe</h1>
+
+            <div className={style.detailContainer}>
+                <img className={style.flag} src={country.flag} alt={country.name}/>
+                <h1>Name: {country.name}</h1>
+                <h2>Capital: {country.capital}</h2>
+                <h3>Continent: {country.continent}</h3>
+                <h4>Subregion: {country.subregion}</h4>
+
                 
                 
-                }
+            </div>
         </div>
     )
 }

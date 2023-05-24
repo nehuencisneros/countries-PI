@@ -29,4 +29,3 @@ const Paginate = ({countriesPage, allCountries, paginate, currentpage}) => {
 }
 
 export default Paginate
-

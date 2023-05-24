@@ -4,17 +4,15 @@ import { GET_ALL_COUNTRIES,
     GET_COUNTRY_BY_NAME,
     GET_COUNTRY_BY_ID,
     FILTER_BY_CONTINENT, 
+    FILTER_BY_ACTIVITY,
     ALPHABETIC_ORDER,
-    POPULATION_ORDER,
-    FILTER_STATE} from "./action-types"
+    POPULATION_ORDER} from "./action-types"
 
 const initialState = {
     allCountries: [],
-    activities: [],
+    allActivities: [],
     countries:[],
     country: [],
-    filterPrev: 0,
-    filter: 0,
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -28,6 +26,12 @@ const rootReducer = (state = initialState, action) => {
             countries: action.payload};
 
 
+        case GET_ALL_ACTIVITIES:
+            return {
+            ...state, 
+            allActivities: action.payload};
+
+
         case FILTER_BY_CONTINENT:
             const allCountries = state.allCountries
             if(action.payload === "All Continents"){
@@ -38,9 +42,44 @@ const rootReducer = (state = initialState, action) => {
             
             return {
             ...state, 
-            countries: filterCountries,
-            filter: filterCountries.length,
-            filterPrev: state.filter}
+            countries: filterCountries};
+
+
+        case FILTER_BY_ACTIVITY:
+            const countries = state.allCountries
+            const allActivities = state.allActivities
+            const activity = action.payload
+            const actMatch = []
+            let countriesFinal = []
+            
+            if(activity === "All activities"){  
+                allActivities.map((element) => {
+                    actMatch.push(element.countries) 
+                })                
+            } else {
+                allActivities.map((element) => {
+                    if(element.name === activity){ 
+                        actMatch.push(element.countries) 
+                }})
+            }
+            
+            const actMatchInside = []
+            
+            for(let i = 0; i < actMatch.length; i++){
+                actMatch[i].map(element => {
+                    actMatchInside.push(element.name)
+                })
+            }
+            
+            const countriesNames = [... new Set(actMatchInside)]
+            
+            for(let name of countriesNames){
+                countriesFinal.push(countries.find((element) => element.name === name))
+            };
+            return{
+                ...state,
+                countries: countriesFinal
+                };
 
 
         case ALPHABETIC_ORDER:
@@ -60,7 +99,7 @@ const rootReducer = (state = initialState, action) => {
                 }
             return {
             ...state,
-            countries: alphaOrder}
+            countries: alphaOrder};
 
 
         case POPULATION_ORDER:
@@ -80,13 +119,13 @@ const rootReducer = (state = initialState, action) => {
                 }
             return {
             ...state,
-            countries: popuOrder}
+            countries: popuOrder};
 
 
         case GET_COUNTRY_BY_NAME:
             return{
             ...state,
-            countries: action.payload}
+            countries: action.payload};
 
 
         case GET_COUNTRY_BY_ID:
@@ -100,17 +139,10 @@ const rootReducer = (state = initialState, action) => {
                     ...state};
 
 
-        case GET_ALL_ACTIVITIES:
-            return {...state, activities: action.payload};
-
-
         default:
             return {...state};
     }
 }
-
-
-
 
 
 export default rootReducer;

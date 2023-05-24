@@ -1,0 +1,12 @@
+.flag {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    width: 300px;
+    height: 200px;
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+
+.detailContainer{
+    background-color:  #005187;
+    height: 100vh;
+}

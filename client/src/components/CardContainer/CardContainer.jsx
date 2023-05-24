@@ -6,7 +6,8 @@ import style from "./CardContainer.module.css"
 import Paginate from "../Paginate/Paginate";
 import PageNumbers from "../Paginate/pageNumbers";
 import Filters from "../Filters/Filters";
-import { getAllCountries} from "../../redux/actions"
+import NavBar from "../NavBar/NavBar";
+import { getAllActivities, getAllCountries} from "../../redux/actions"
 
 const CardContainer = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const CardContainer = () => {
 
     useEffect(()=>{
         dispatch(getAllCountries(dependencia.countries))
+        dispatch(getAllActivities())
     },[dispatch]);
 
     if(currentPage > cantPages){
@@ -36,12 +38,12 @@ const CardContainer = () => {
     }
 
     return(
-        <div classname={style.containerCard}>            
+        <div classname={style.containerCard}>       
+            <NavBar/>     
             <div className={style.filters}>
                 {location.pathname === "/home" && <Filters/>}    
             </div>
-            
-            <div className={style.container}>
+            { currentCountries.length < 6 ? <div className={style.containerExtend}> 
                 {currentCountries.map(country => {
                     return( 
                         <Link className={style.link} to={`/home/${country.id}`} >
@@ -54,7 +56,23 @@ const CardContainer = () => {
                         </Link>
                     )
                 })}
-            </div>
+                </div> 
+                :
+                <div className={style.container}>
+                    {currentCountries.map(country => {
+                        return( 
+                            <Link className={style.link} to={`/home/${country.id}`} >
+                                <Card
+                                    key={country.id}
+                                    flag={country.flag}
+                                    name={country.name}
+                                    continent={country.continent}
+                                />
+                            </Link>
+                        )
+                    })}
+                </div>
+            }
             <Paginate
                     countriesPage={countriesPage}
                     allCountries={dependencia.countries.length}

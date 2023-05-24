@@ -3,7 +3,7 @@ import style from "./Filters.module.css"
 import PopulationOrder from "./FilterBy/PopulationOrder"
 import AlphabeticOrder from "./FilterBy/AlphabeticOrder"
 import Continents from "./FilterBy/Continents"
-import SearchBar from "../SearchBar/SearchBar"
+import Activities from "./FilterBy/Activities"
 
 const Filters = () => {
     
@@ -13,8 +13,8 @@ const Filters = () => {
                     <Continents/>
                 </div>
 
-                <div className={style.searchBar}>
-                    <SearchBar/>
+                <div className={style.continents}>
+                    <Activities/>
                 </div>
 
                 <div className={style.alphaPopu}> 

@@ -93,7 +93,7 @@ const Form = () => {
                     <div>
                         <label>Activity difficulty:</label>
                         <select className={style.selects} name="difficulty" onChange={handlerChange}>
-                            <option>Select difficulty</option>
+                            <option value="">Select difficulty</option>
                             <option value="1">⬛⬜⬜⬜⬜</option>
                             <option value="2">⬛⬛⬜⬜⬜</option>
                             <option value="3">⬛⬛⬛⬜⬜</option>
@@ -107,7 +107,7 @@ const Form = () => {
                     <div>
                         <label>Activity duration:</label>
                         <select className={style.selects} name="duration" onChange={handlerChange}>
-                            <option>Select duration</option>
+                            <option value="">Select duration</option>
                             <option value="1">1 hour</option>
                             <option value="2">2 hour</option>
                             <option value="3">3 hour</option>
@@ -127,7 +127,7 @@ const Form = () => {
                     <div>
                     <label>Season:</label>
                         <select className={style.selects} name="season" onChange={handlerChange}>
-                            <option>Select season:</option>
+                            <option value="">Select season:</option>
                             <option value="Summer">Summer</option>
                             <option value="Autumn">Autumn</option>
                             <option value="Winter">Winter</option>
@@ -139,7 +139,7 @@ const Form = () => {
                     <div>
                     <label>Country:</label>
                         <select className={style.selects} onChange={handlerCountrySelect} value="country">
-                            <option>Select country</option>
+                            <option value="">Select country</option>
                             {allCountries?.map(country => {
                                 return(
                                     <option value={country.value} key={country.id}>
