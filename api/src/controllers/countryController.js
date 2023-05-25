@@ -39,6 +39,8 @@ let getAllCountriesInfo = async () => {
     return allData;
 }
 
+
+
 const getCountryById = async (id) => {
 
     await getAllCountriesInfo()
@@ -54,9 +56,6 @@ const getCountryById = async (id) => {
         { include : {
             model: Activity,
             attributes: [ "name", "difficulty", "duration", "season"],
-            through: {
-                attributes:[],
-            }
         }}
     );
 
@@ -66,6 +65,8 @@ const getCountryById = async (id) => {
 
     return "por favor igrese un id correcto";
 }
+
+
 
 const getCountryByName = async (name) => {
     
@@ -77,7 +78,11 @@ const getCountryByName = async (name) => {
                 [Op.iLike] : `%${name}%`
             }
         },
-        include : [Activity] 
+        include : [ {
+            model: Activity,
+            attributes: ["name", "difficulty", "duration", "season"],
+            through: { attributes: [] },
+        }]
     });
 
     if(nameCountry){

@@ -68,7 +68,6 @@ export const getCountryById = (id) => {
         try {
             const countryData = await axios.get(`${URL_COUNTRIES}/${id}`);
             const country = countryData.data;
-            console.log(country)
             dispatch({
                 type: GET_COUNTRY_BY_ID,
                 payload: country});

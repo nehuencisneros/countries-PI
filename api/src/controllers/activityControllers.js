@@ -4,12 +4,9 @@ const { getAllCountriesInfo } = require('./countryController')
 const getAllActivities = async () => {
 
     let allActivities = await Activity.findAll({
-        include : {
+        include: {
             model: Country,
-            attributes: [ "name"],
-            through: {
-                attributes:[],
-            }
+            attributes: ['name'],
         }
     })
     return allActivities

@@ -26,6 +26,8 @@ const Form = () => {
         dispatch(getAllCountries())
     },[dispatch])
 
+    const disabled = (newActivity.name === "" || newActivity.difficulty === "" || newActivity.duration === "" || newActivity.season === "" || newActivity.country.length === 0) 
+
     const handlerChange = (event) => {
         const activityProperty = event.target.name;
         const value = event.target.value;
@@ -166,7 +168,7 @@ const Form = () => {
                     {<p>{newActivity.country.length > 0 ? "country selected: " + newActivity.country.map(element => element) + ",": ""}</p>}
 
 
-                    <button className={style.button} type="submit">Create activity</button>
+                    <button className={style.button} disabled={disabled} type="submit">Create activity</button>
                 </form>
             </div>
         </div>

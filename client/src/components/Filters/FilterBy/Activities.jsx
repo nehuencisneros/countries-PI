@@ -11,6 +11,7 @@ const Activities = () => {
     useEffect(() => {
         dispatch(getAllActivities())
         dispatch(getAllCountries(dependencia.countries))
+        console.log("entre aca")
     },[dispatch])
 
     const values = dependencia.allActivities
@@ -22,7 +23,7 @@ const Activities = () => {
 
     return(
         <select className={style.selects} onChange={handlerActivity}>
-            <option>Select activity</option>
+            <option value="Select activity">Select activity</option>
             <option value="All activities">All activities</option>
             {values?.map((activity,index) => {
                 return(

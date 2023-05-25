@@ -1,6 +1,5 @@
-import { Home, LandingPage, Form, Detail } from "./views"
+import { Home, LandingPage, Form, Detail, NotFound } from "./views"
 import { Route, Switch } from 'react-router-dom';
-
 
 function App() {
 
@@ -11,6 +10,7 @@ function App() {
             <Route exact path = "/home" render={() => <Home/>}/>
             <Route exact path = "/home/:id" render={() => <Detail/>}/>
             <Route exact path = "/form" render={() => <Form/>}/>
+            <Route exact path = "*" render={() => <NotFound/>}/>
           </Switch>
       </div>
   );

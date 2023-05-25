@@ -51,31 +51,37 @@ const rootReducer = (state = initialState, action) => {
             const activity = action.payload
             const actMatch = []
             let countriesFinal = []
-            
-            if(activity === "All activities"){  
-                allActivities.map((element) => {
-                    actMatch.push(element.countries) 
-                })                
+
+            if(activity === "Select activity"){
+                countriesFinal = countries
             } else {
-                allActivities.map((element) => {
-                    if(element.name === activity){ 
+
+                if(activity === "All activities"){  
+                    allActivities.map((element) => {
                         actMatch.push(element.countries) 
-                }})
+                    })                
+                } else {
+                    allActivities.map((element) => {
+                        if(element.name === activity){ 
+                            actMatch.push(element.countries) 
+                    }})
+                }
+                
+                const actMatchInside = []
+                
+                for(let i = 0; i < actMatch.length; i++){
+                    actMatch[i].map(element => {
+                        actMatchInside.push(element.name)
+                    })
+                }
+                
+                const countriesNames = [... new Set(actMatchInside)]
+                
+                for(let name of countriesNames){
+                    countriesFinal.push(countries.find((element) => element.name === name))
+                };
+            
             }
-            
-            const actMatchInside = []
-            
-            for(let i = 0; i < actMatch.length; i++){
-                actMatch[i].map(element => {
-                    actMatchInside.push(element.name)
-                })
-            }
-            
-            const countriesNames = [... new Set(actMatchInside)]
-            
-            for(let name of countriesNames){
-                countriesFinal.push(countries.find((element) => element.name === name))
-            };
             return{
                 ...state,
                 countries: countriesFinal
@@ -125,7 +131,8 @@ const rootReducer = (state = initialState, action) => {
         case GET_COUNTRY_BY_NAME:
             return{
             ...state,
-            countries: action.payload};
+            countries: action.payload,
+            country: action.payload};
 
 
         case GET_COUNTRY_BY_ID:

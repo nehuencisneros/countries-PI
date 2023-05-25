@@ -41,7 +41,6 @@
     color: #005187;
     border: .25em solid #005187;
     padding: 5px 5px;
-    color: #005187;
     font-size: 30px;
     font-weight: bold;
     background-color: transparent;
@@ -52,9 +51,15 @@
 }
 
 .button:hover {
+    transform: translate(0, 0);
     color: #84b6f4;
     background-color: #005187;
     box-shadow: 0px 0px 10px 1px #005187;
+}
+
+.button:active {
+    color: #84b6f4;
+    outline: 0;
 }
 
 .errors {
