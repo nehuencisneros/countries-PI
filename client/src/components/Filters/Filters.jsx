@@ -17,7 +17,7 @@ const Filters = () => {
                     <Activities/>
                 </div>
 
-                <div className={style.alphaPopu}> 
+                <div className={style.orders}> 
                     <AlphabeticOrder/>
                     <PopulationOrder/>
                 </div>

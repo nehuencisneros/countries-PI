@@ -11,7 +11,8 @@ const SearchBar = () => {
     const history = useHistory()
 
     const handlerSearch = (event) => {
-        setCountryName(event.target.value)
+        const name = event.target.value
+        setCountryName(name)
     }
 
     const handlerSubmit = (event) => {

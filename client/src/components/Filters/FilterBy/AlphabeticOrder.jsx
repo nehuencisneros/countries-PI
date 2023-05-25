@@ -6,7 +6,7 @@ import style from "./Selects.module.css"
 const AlphabeticOrder = () => {
 
     const dispatch = useDispatch()
-    const [currentPage,setCurrentPage] = useState(1)
+    const [_currentPage,setCurrentPage] = useState(1)
 
     const values = ["from A to Z", "from Z to A"]
 
@@ -30,8 +30,3 @@ const AlphabeticOrder = () => {
 }
 
 export default AlphabeticOrder;
-
-
-
-{/* <option value="from A to Z">from A to Z</option>
-            <option value="from Z to A">from Z to A</option> */}

@@ -15,7 +15,7 @@
     justify-content:center;
 }
 
-.alphaPopu{
+.orders{
     display: flex;
     flex-direction: column;
     justify-content: space-around;

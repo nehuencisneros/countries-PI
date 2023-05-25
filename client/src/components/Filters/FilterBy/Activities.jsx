@@ -5,7 +5,7 @@ import style from "./Selects.module.css"
 
 const Activities = () => {
     const dispatch = useDispatch()
-    const [currentPage,setCurrentPage] = useState(1)
+    const [_currentPage,setCurrentPage] = useState(1)
     const dependencia = useSelector((state) => state)
 
     useEffect(() => {

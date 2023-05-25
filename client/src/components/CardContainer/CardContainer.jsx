@@ -38,7 +38,7 @@ const CardContainer = () => {
     }
 
     return(
-        <div classname={style.containerCard}>       
+        <div className={style.containerCard}>       
             <NavBar/>     
             <div className={style.filters}>
                 {location.pathname === "/home" && <Filters/>}    

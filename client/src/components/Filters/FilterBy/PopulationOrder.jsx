@@ -6,7 +6,7 @@ import style from "./Selects.module.css"
 const PopulationOrder = () => {
     
     const dispatch = useDispatch()
-    const [currentPage,setCurrentPage] = useState(1)
+    const [_currentPage,setCurrentPage] = useState(1)
 
     const handlePopulation = (event) => {
         dispatch(populationOrder(event.target.value))

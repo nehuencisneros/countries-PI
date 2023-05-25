@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCountries } from "../../redux/actions";
 import style from "./Home.module.css"
-import NavBar from "../../components/NavBar/NavBar";
 
 const Home = () => {
     const dispatch = useDispatch()

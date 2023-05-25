@@ -58,7 +58,7 @@ const rootReducer = (state = initialState, action) => {
 
                 if(activity === "All activities"){  
                     allActivities.map((element) => {
-                        actMatch.push(element.countries) 
+                        return actMatch.push(element.countries) 
                     })                
                 } else {
                     allActivities.map((element) => {
@@ -71,7 +71,7 @@ const rootReducer = (state = initialState, action) => {
                 
                 for(let i = 0; i < actMatch.length; i++){
                     actMatch[i].map(element => {
-                        actMatchInside.push(element.name)
+                        return actMatchInside.push(element.name)
                     })
                 }
                 
