@@ -26,7 +26,7 @@ const Form = () => {
         dispatch(getAllCountries())
     },[dispatch])
 
-    const disabled = (newActivity.name === "" || newActivity.difficulty === "" || newActivity.duration === "" || newActivity.season === "" || newActivity.country.length === 0) 
+    const disabled = (newActivity.name === "" || newActivity.difficulty === "" || newActivity.duration === "" || newActivity.season === "" || newActivity.country.length === 0)
 
     const handlerChange = (event) => {
         const activityProperty = event.target.name;
@@ -38,21 +38,46 @@ const Form = () => {
         }))
 
         setNewActivity({
-            ...newActivity, 
+            ...newActivity,
             [activityProperty]:value})
     }
 
     const handlerCountrySelect = (event) => {
+        const countryName = event.target.value
         
-        if(newActivity.country.includes(event.target.value)){
+        if(newActivity.country.includes(countryName)){
             return alert("The country is already selected")
         } else {
+            setErrors(validation({
+                ...newActivity,
+                    country: countryName
+            }))
             setNewActivity({
                 ...newActivity,
-                country: [...newActivity.country, event.target.value]
+                country: [...newActivity.country, countryName]
             })
+            
         }
     }
+
+    const handlerCountryDeselect = (event) => {
+        const name = event.target.value
+
+        newActivity.country = newActivity.country.filter(countryName => countryName != name)
+
+        setErrors(validation({
+            ...newActivity
+        }))
+
+        setNewActivity({
+            ...newActivity,
+                country: newActivity.country
+        })
+
+        
+    }
+
+
 
     const handlerSubmit = (event) => {
         event.preventDefault()
@@ -80,12 +105,12 @@ const Form = () => {
             <NavBar/>
             <div className={style.form}>
                 <form onSubmit={handlerSubmit} className={style.formContainer}>
-                    
+
                     <div>
                         <label>Activity name: </label>
-                        <input className={style.selects} 
-                        type="text" 
-                        value={newActivity.name} 
+                        <input className={style.selects}
+                        type="text"
+                        value={newActivity.name}
                         onChange={handlerChange}
                         name="name"></input>
                         {errors.name && <p className={style.errors}>{errors.name}</p>}
@@ -149,7 +174,7 @@ const Form = () => {
                                     </option>
                                 )
                             })}
-                            
+
                         </select>
                         {errors.country && <p className={style.errors}>{errors.country}</p>}
                         <ul>
@@ -162,11 +187,28 @@ const Form = () => {
                                     </div>
                                 )
                             })}
-                            
+
                         </ul>
                     </div>
                     {<p>{newActivity.country.length > 0 ? "country selected: " + newActivity.country.map(element => element) + ",": ""}</p>}
 
+                    { newActivity.country.length > 0 &&
+                        <div>
+                            <label>Deselect country:</label>
+                            
+                            <select className={style.selects} onChange={handlerCountryDeselect} value="outCountry">
+                                <option value="">Deselect country</option>
+                                {newActivity.country?.map((country, index) => {
+                                    return(
+                                        <option value={country} key={index}>
+                                            {country}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                            
+                        </div>
+                    }
 
                     <button className={style.button} disabled={disabled} type="submit">Create activity</button>
                 </form>

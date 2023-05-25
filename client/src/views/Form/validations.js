@@ -21,7 +21,7 @@ const Validation = (newActivity) => {
         errors.season = "Please, choose the activity's season";
     }
 
-    if(newActivity.country.length < 1){
+    if(newActivity.country.length === 0){
         errors.country = "Please, choose at least 1 country for the activity";
     }
 

@@ -36,7 +36,7 @@ const Detail = () => {
         <div>
             <NavBar></NavBar>
             <div className={style.allContainer}>
-                    
+                
                     { state.country !== "por favor igrese un id de 3 caracteres" ?
                         
                         <div className={style.detailContainer}>
@@ -47,6 +47,7 @@ const Detail = () => {
                             <h3>Continent: {state.country.continent}</h3>
                             <h3>Subregion: {state.country.subregion}</h3>
                             <h3>Area: {state.country.area}</h3>
+                            <h3>Population: {state.country.population}</h3>
                         </div>
                         :
                         <div>
