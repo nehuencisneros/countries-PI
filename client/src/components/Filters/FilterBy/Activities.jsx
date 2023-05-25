@@ -11,10 +11,13 @@ const Activities = () => {
     useEffect(() => {
         dispatch(getAllActivities())
         dispatch(getAllCountries(dependencia.countries))
-        console.log("entre aca")
     },[dispatch])
 
-    const values = dependencia.allActivities
+    let values = dependencia.allActivities
+
+    values = values.map(element => element.name)
+
+    const onlyValues = [...new Set(values)]
 
     const handlerActivity = (event) => {
         dispatch(filterCountriesByActivities(event.target.value))
@@ -25,15 +28,14 @@ const Activities = () => {
         <select className={style.selects} onChange={handlerActivity}>
             <option value="Select activity">Select activity</option>
             <option value="All activities">All activities</option>
-            {values?.map((activity,index) => {
+            {onlyValues?.map((activity,index) => {
                 return(
-                    <option value={activity.name} key={index}>
-                        {activity.name}
+                    <option value={activity} key={index}>
+                        {activity}
                     </option>
                 )
             })}
         </select>
     )
 }
-
 export default Activities;
