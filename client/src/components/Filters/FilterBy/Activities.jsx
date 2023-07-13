@@ -26,15 +26,15 @@ const Activities = () => {
 
     return(
         <select className={style.selects} onChange={handlerActivity}>
-            <option value="Select activity">Select activity</option>
-            <option value="All activities">All activities</option>
-            {onlyValues?.map((activity,index) => {
-                return(
-                    <option value={activity} key={index}>
-                        {activity}
-                    </option>
-                )
-            })}
+            <option className={style.option} value="Select activity">Select activity</option>
+            <option className={style.option} value="All activities">All activities</option>
+                {onlyValues?.map((activity,index) => {
+                    return(
+                        <option className={style.option} value={activity} key={index}>
+                            {activity}
+                        </option>
+                    )
+                })}
         </select>
     )
 }

@@ -6,10 +6,10 @@ import style from "./Home.module.css"
 
 const Home = () => {
     const dispatch = useDispatch()
-    const dependencia = useSelector(state => state.allCountries)
+    const allCountries = useSelector(state => state.allCountries)
     
     useEffect(()=>{
-        dispatch(getAllCountries(dependencia))
+        dispatch(getAllCountries(allCountries))
     },[dispatch]);
     
     return (

@@ -8,6 +8,7 @@
     padding-bottom: 3em;
     justify-content:center;
     flex-wrap: wrap;
+    grid-template-columns: 4
 }
 
 .containerExtend{

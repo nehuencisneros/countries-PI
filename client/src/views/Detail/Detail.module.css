@@ -1,59 +1,135 @@
+.add{
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 18%;
+    text-align: center;
+
+}
+
 .flag {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    width: 300px;
-    height: 200px;
     border-bottom: 1px solid rgb(128, 128, 128);
+    align-self: center;
+    margin-inline: 2em;
+    width: 80%;
 }
 
 .allContainer{
-    display: flex;
-    margin-top: 4em;
-    justify-content:center;
+    display: grid;
+    grid-template-columns: 30% 60%;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding-top: 4em;
 }
 
 .detailContainer{
-    display: flex;
     justify-content: space-around;
     background-color:  #4d82bc;
     flex-direction: column;
     align-items: center;
-    padding: 3.5em;
-    padding-top: 2em;
-    
+    height: 100%;
+    padding: 2.5em;
+    padding-top: 1em;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
-    width: 25em;
     border: solid 10px #C4DAFA; 
     box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
-    margin: 3em;
-
+    text-align: center;
 }
 
 .activityContainer{
-    display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
+    background-image: url("./activities-background.jpg");
+    background-size: cover;
+    background-color:  #4d82bc;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-inline: 1em;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: solid 10px #C4DAFA; 
+    box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
+    grid-template-rows: 5% 95%
+}
+
+.titleContainerActivities{
+    background-color: #005187;
+    color: white;
+    margin-block: 1em;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.titleActivities{
+    text-align: center;
+}
+
+.activityDetail{
+    display: grid;
+    padding:  1em;
+    height: 80%;
+    grid-template-columns: auto auto;
+    grid-row: auto auto;
+    margin: 1em auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
 }
 
 .container{
-    display:flex;
-    flex-direction: column;
     background-color: #C4DAFA;
-    justify-content: space-around;
-    padding: 3.5em;
-    width: 15em;
+    opacity: 0.8;
     border: solid 10px #4d82bc; 
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    margin: 3em;
     box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
-
-    
+    padding: 5%;
+    height: 75%;
+    text-decoration: none;
+    outline: none;
 }
+.containerSummer h4{
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-decoration: none;
+    outline: none;
+}
+
+
+
+/* .containerAuttum{
+    background-color: rgb(192, 59, 6);
+    border: solid 10px #4d82bc; 
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
+}
+
+.containerSpring{
+    background-color: rgb(16, 158, 16);
+    border: solid 10px #4d82bc; 
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
+}
+
+.containerWinter{
+    background-color: rgb(44, 139, 171);
+    border: solid 10px #4d82bc; 
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
+} */
+
+
 
 .title{
     align-items: center;
     text-align: center;
-    border-bottom: solid 3px #005187; ;
-    height: 2em;
+    height: 1em;
+    padding: 0;
+    margin: 0;
 }

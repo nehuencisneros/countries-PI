@@ -21,6 +21,11 @@ const CardContainer = () => {
     const currentCountries = dependencia.countries.slice(indexFirstCountry, indexLastCountry);   
     const cantCountries = dependencia.countries.length
     
+    const numerito = Math.ceil(cantCountries/countriesPage)
+
+    console.log(numerito)
+
+
     const arrayPages = PageNumbers(countriesPage, cantCountries)
     const cantPages = arrayPages.length
 

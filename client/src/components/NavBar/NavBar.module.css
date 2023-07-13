@@ -7,13 +7,12 @@
     align-items:center
 }
 
-.mainContainer:hover{
+/* .mainContainer:hover{
     background-color: #c4dafa;
-}
+} */
 
 .botonHome{
-    
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     border-radius: 8px;
     border: 1px solid transparent;
     font-size: 25px;
@@ -25,11 +24,11 @@
 .botonHome:hover {
     background-color: #4d82bc;
     color: white;
+    border: 2px solid white;
 }
 
 .botonActivities{
-    
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     border-radius: 8px;
     border: 1px solid transparent;
     font-size: 25px;
@@ -41,11 +40,11 @@
 .botonActivities:hover {
     background-color: #4d82bc;
     color: white;
+
 }
 
 .botonForm{
-
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     border-radius: 8px;
     border: 1px solid transparent;
     font-size: 25px;
@@ -55,6 +54,7 @@
 }
 
 .botonForm:hover {
-    background-color: #4d82bc; /* Green */
+    background-color: #4d82bc;
     color: white;
+    border: 2px solid white;
 }
