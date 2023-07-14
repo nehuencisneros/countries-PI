@@ -10,6 +10,7 @@ function App() {
             <Route exact path = "/home" render={() => <Home/>}/>
             <Route exact path = "/home/:id" render={() => <Detail/>}/>
             <Route exact path = "/form" render={() => <Form/>}/>
+            <Route exact path = "/form/:id" render={() => <Form/>}/>
             <Route exact path = "*" render={() => <NotFound/>}/>
           </Switch>
       </div>

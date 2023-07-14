@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/actions";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import NavBar from "../../components/NavBar/NavBar";
 import style from "./Form.module.css"
 import validation from "./validations";
+import { useLocation, useHistory } from "react-router-dom";
 
 const Form = () => {
     const dispatch = useDispatch();
     const allCountries = useSelector(state => state.allCountries);
     const history = useHistory()
+    const location = useLocation()
+    const idRoute = location.pathname.split("/")
+    const idCountry = idRoute[2]
 
     const [errors, setErrors] = useState({})
 
@@ -22,8 +25,13 @@ const Form = () => {
         flag: ""
     })
 
+
     useEffect(() => {
         dispatch(getAllCountries())
+        setNewActivity({
+            ...newActivity,
+            country: [...newActivity.country, idCountry]
+        })  
     },[dispatch])
 
     const disabled = (newActivity.name === "" || newActivity.difficulty === "" || newActivity.duration === "" || newActivity.season === "" || newActivity.country.length === 0)
@@ -59,29 +67,15 @@ const Form = () => {
         }
     }
 
-    const handlerCountryDeselect = (event) => {
-        const name = event.target.value
-
-        newActivity.country = newActivity.country.filter(countryName => countryName != name)
-
-        setErrors(validation({
-            ...newActivity
-        }))
-
-        setNewActivity({
-            ...newActivity,
-                country: newActivity.country
-        })
-    }
-
     const deleteCountry = (event) => {
+
         setNewActivity({
             ...newActivity,
-            countries: newActivity.countries.filter((country) => country !== event.target.value)
+            country: newActivity.country.filter((country) => country !== event.target.value)
         })
         setErrors(validation({
             ...newActivity,
-            countries: newActivity.countries.filter((country) => country !== event.target.value)
+            country: newActivity.country.filter((country) => country !== event.target.value)
         }))
     }
 
@@ -111,25 +105,27 @@ const Form = () => {
         <div>
             <NavBar/>
             <div className={style.form}>
-            <form onSubmit={handlerSubmit} className={style.formContainer}>
+                <div className={style.formContainer}>
+                
 
-                <h2 className={style.titleForm}>Activity options</h2>
-                <div className={style.selectContainer}>
-                    
+                    <div className={style.titleFormContainer}>
+                        <h2 className={style.titleForm}>Activity options</h2>
+                    </div>
+
+                    <div className={style.selectContainer}>
+                        
                         <label>Activity name: </label>
                         <input className={style.selects}
-                        type="text"
-                        value={newActivity.name}
-                        onChange={handlerChange}
-                        name="name"></input>
+                            placeholder="Activity..."
+                            type="text"
+                            value={newActivity.name}
+                            onChange={handlerChange}
+                            name="name"></input>
                         {errors.name && <p className={style.errors}>{errors.name}</p>}
-                    
-
-
-                    
+                        
                         <label>Activity difficulty:</label>
                         <select className={style.selects} name="difficulty" onChange={handlerChange}>
-                            <option value="">Select difficulty</option>
+                            <option value="">Select difficulty...</option>
                             <option value="1">⭐ ☆ ☆ ☆ ☆</option>
                             <option value="2">⭐⭐ ☆ ☆ ☆</option>
                             <option value="3">⭐⭐⭐ ☆ ☆</option>
@@ -137,13 +133,10 @@ const Form = () => {
                             <option value="5">⭐⭐⭐⭐⭐</option>
                         </select>
                         {errors.difficulty && <p className={style.errors}>{errors.difficulty}</p>}
-                    
-
-
-                    
+                        
                         <label>Activity duration:</label>
                         <select className={style.selects} name="duration" onChange={handlerChange}>
-                            <option value="">Select duration</option>
+                            <option value="">Select duration...</option>
                             <option value="1">1 hour</option>
                             <option value="2">2 hour</option>
                             <option value="3">3 hour</option>
@@ -158,64 +151,71 @@ const Form = () => {
                             <option value="12">12 hour</option>
                         </select>
                         {errors.duration && <p className={style.errors}>{errors.duration}</p>}
-                    
-
-                    
-                    <label>Season:</label>
+                        
+                        <label>Season:</label>
                         <select className={style.selects} name="season" onChange={handlerChange}>
-                            <option value="">Select season:</option>
+                            <option value="">Select season...</option>
                             <option value="Summer">Summer</option>
                             <option value="Autumn">Autumn</option>
                             <option value="Winter">Winter</option>
                             <option value="Spring">Spring</option>
                         </select>
                         {errors.season && <p className={style.errors}>{errors.season}</p>}
-                    
 
-                    
-                    <label>Country:</label>
-                        <select className={style.selects} onChange={handlerCountrySelect} value="country">
-                            <option value="">Select country</option>
-                            {allCountries?.map(country => {
-                                return(
-                                    <option value={country.value} key={country.id}>
-                                        {country.name}
-                                    </option>
-                                )
-                            })}
-
-                        </select>
+                        {newActivity.country.length !== 5  && 
+                        <div style={{marginLeft: "50%",width:"100%"}}>    
+                        <label style={{marginInlineStart: 0}}>Country:</label>
+                            <select className={style.selects} onChange={handlerCountrySelect} value="country">
+                                <option value="">Select country...</option>
+                                {allCountries?.map(country => {
+                                    return(
+                                        <option value={country.value} key={country.id}>
+                                            {country.name}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                        </div>
+                        }
                         {errors.country && <p className={style.errors}>{errors.country}</p>}
-                        <ul>
-                            {allCountries.name?.map((name, index) => {
-                                return (
-                                    <div key={index++}>
-                                        <li key={name}>
-                                            {name}
-                                        </li>
-                                    </div>
-                                )
-                            })}
 
-                        </ul>
-                    
+                        {newActivity.country.length > 0 && newActivity.country.length < 4 &&
+                            <p className={style.p}>You can add {5 - newActivity.country.length } countries more</p>
+                        }
+                        {newActivity.country.length === 4  && 
+                            <p className={style.p}>You can add 1 country </p>
+                        }
+                    </div>
+
                 </div>
-                <button className={style.button} disabled={disabled} type="submit">Create activity</button>
-                </form>
-                {newActivity.country.length > 0 &&
-                <div className={style.countriesContainer}>
+                {newActivity.country.length > 0 && <form onSubmit={handlerSubmit} className={style.countriesContainer} >
+                    <div className={style.titleCountriesContainer}>
+                        <h2 className={style.titleCountries}>Countries Selected</h2>
+                    </div>
+                    <div className={style.countries}>
                     {newActivity.country.map((country) => {
                         return(
-                            <div>
-                                <h2 className={style.titleCountries}>Countries Selected</h2>
-                                <div className={style.countries} key={country}>
-                                    <h3 style={{ backgroundColor: "yellow", marginInline: "5%"}}>- {country}</h3>
-                                    <button onClick={deleteCountry} value={country}> X </button>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
+                                    <div className={style.country} key={country}>
+                                        <h4>-  {country}</h4>
+                                        <button onClick={deleteCountry} value={country} className={style.delete}> X </button>
+                                    </div>
+                            )
+                        }
+                        )}
+                        {newActivity.country.length > 0 && newActivity.country.length < 4 &&
+                            <p className={style.p}>You can add {5 - newActivity.country.length } countries more</p>
+                        }
+                        {newActivity.country.length === 4  && 
+                            <p className={style.p}>You can add 1 country </p>
+                        }
+                        {newActivity.country.length === 5  &&
+                            <p className={style.p}>You can't add more countries</p>
+                        }
+                        </div>
+                        <div className={style.buttonContainer}>
+                            <button className={style.button} disabled={disabled} type="submit">Create activity</button>
+                        </div>
+                    </form>
                 }
             </div>
         </div>
@@ -223,111 +223,3 @@ const Form = () => {
 }
 
 export default Form;
-
-
-{/* <form onSubmit={handlerSubmit} className={style.formContainer}>
-
-<h2 className={style.titleForm}>Activity options</h2>
-<div style={{justifyContent: "center", margin:0, padding: 0}}>
-    <div>
-        <label>Activity name: </label>
-        <input className={style.selects}
-        type="text"
-        value={newActivity.name}
-        onChange={handlerChange}
-        name="name"></input>
-        {errors.name && <p className={style.errors}>{errors.name}</p>}
-    </div>
-
-
-    <div>
-        <label>Activity difficulty:</label>
-        <select className={style.selects} name="difficulty" onChange={handlerChange}>
-            <option value="">Select difficulty</option>
-            <option value="1">⭐ ☆ ☆ ☆ ☆</option>
-            <option value="2">⭐⭐ ☆ ☆ ☆</option>
-            <option value="3">⭐⭐⭐ ☆ ☆</option>
-            <option value="4">⭐⭐⭐⭐ ☆</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
-        </select>
-        {errors.difficulty && <p className={style.errors}>{errors.difficulty}</p>}
-    </div>
-
-
-    <div>
-        <label>Activity duration:</label>
-        <select className={style.selects} name="duration" onChange={handlerChange}>
-            <option value="">Select duration</option>
-            <option value="1">1 hour</option>
-            <option value="2">2 hour</option>
-            <option value="3">3 hour</option>
-            <option value="4">4 hour</option>
-            <option value="5">5 hour</option>
-            <option value="6">6 hour</option>
-            <option value="7">7 hour</option>
-            <option value="8">8 hour</option>
-            <option value="9">9 hour</option>
-            <option value="10">10 hour</option>
-            <option value="11">11 hour</option>
-            <option value="12">12 hour</option>
-        </select>
-        {errors.duration && <p className={style.errors}>{errors.duration}</p>}
-    </div>
-
-    <div>
-    <label>Season:</label>
-        <select className={style.selects} name="season" onChange={handlerChange}>
-            <option value="">Select season:</option>
-            <option value="Summer">Summer</option>
-            <option value="Autumn">Autumn</option>
-            <option value="Winter">Winter</option>
-            <option value="Spring">Spring</option>
-        </select>
-        {errors.season && <p className={style.errors}>{errors.season}</p>}
-    </div>
-
-    <div>
-    <label>Country:</label>
-        <select className={style.selects} onChange={handlerCountrySelect} value="country">
-            <option value="">Select country</option>
-            {allCountries?.map(country => {
-                return(
-                    <option value={country.value} key={country.id}>
-                        {country.name}
-                    </option>
-                )
-            })}
-
-        </select>
-        {errors.country && <p className={style.errors}>{errors.country}</p>}
-        <ul>
-            {allCountries.name?.map((name, index) => {
-                return (
-                    <div key={index++}>
-                        <li key={name}>
-                            {name}
-                        </li>
-                    </div>
-                )
-            })}
-
-        </ul>
-    </div>
-</div>
-<button className={style.button} disabled={disabled} type="submit">Create activity</button>
-</form>
-{newActivity.country.length > 0 &&
-<div className={style.countriesContainer}>
-    {newActivity.country.map((country) => {
-        return(
-            <div>
-                <h2 className={style.titleCountries}>Countries Selected</h2>
-                <div className={style.countries} key={country}>
-                    <h3 style={{ backgroundColor: "yellow", marginInline: "5%"}}>- {country}</h3>
-                    <button onClick={deleteCountry} value={country}> X </button>
-                </div>
-            </div>
-        )
-    })}
-</div>
-} */}

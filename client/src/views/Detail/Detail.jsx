@@ -1,19 +1,20 @@
 import React, { useDispatch, useSelector } from "react-redux";
 import { getAllActivities, getCountryById } from "../../redux/actions";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import style from "./Detail.module.css"
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 
 const Detail = () => {
     const state = useSelector((state) => state);
     const location = useLocation()
     const dispatch = useDispatch()
-
     const idRoute = location.pathname.split("/")
     const idCountry = idRoute[2]
-    
+
+
+
     useEffect(() => {
         dispatch(getCountryById(idCountry))
         dispatch(getAllActivities())
@@ -92,7 +93,7 @@ const Detail = () => {
                                     {form.map((element, index) => {
                                         return (
                                             <div className={style.container} key={index}>
-                                                <Link to="/form" style={{ textDecoration: 'none' }}>
+                                                <Link to={`/form/${countryForm}`} style={{ textDecoration: 'none' }}>
                                                     <p className={style.add}>{element.name} +</p>
                                                 </Link>
                                             </div>

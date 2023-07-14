@@ -1,23 +1,36 @@
 .form{
-    padding-inline: 5%;
+    padding-block: 5%;
+    padding-inline: 10%;
     align-self: center;
     align-items: center;
     background-color: #005187;
-    border: solid 10px red; 
-    height: 100%;
     display: grid;
     grid-template-columns: 60% 40%;
+
 }
 
 .formContainer{
+    padding: 0%;
     display:flex;
-    justify-content: space-around;
     align-items: center;
-    margin: 3rem;
-    height: 50rem;
-    align-content: center;
+    margin-right: 5%;
+    height: 40rem;
+    justify-content: space-around;
+    flex-direction: column;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: #84b6f4;
+    border: solid 10px #C4DAFA; 
+    box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
+}
 
-
+.countriesContainer{
+    padding: 0%;
+    display:flex;
+    align-items: center;
+    margin-left: 5%;
+    height: 40em;
+    justify-content: space-around;
     flex-direction: column;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
@@ -32,50 +45,34 @@
     flex-direction: column;
     align-items: center;
     padding-inline: 30%;
-    margin-block: 8%;
-    padding: 0;
+    padding: 0%;
+    height: 34rem;
+    width: 100%;
 }
 
-.countriesContainer{
-    margin: 3rem;
-    height: 50rem;
-    justify-content: space-around;
-    flex-direction: column;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    background-color: #84b6f4;
-    /* padding: 6%; */
-    border: solid 10px #C4DAFA; 
-    box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
-}
+.buttonContainer{
 
-.titleForm{
-    color: #C4DAFA;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    text-align: center;
-    background-color: #005187;
-    margin-inline: 2%;
-    padding: 0.5em;
-    border: 0px 0px 10px 0 rgb(255, 255, 255);
-}
-
-.titleCountries{
-    color: #C4DAFA;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    text-align: center;
-    background-color: #005187;
-    margin-inline: 5%;
-    padding: 0.5em;
-    border: 0px 0px 10px 0 rgb(255, 255, 255);
+    height: 4rem;
 }
 
 .countries{
-    display: flex   ;
-    background-color: red;
+    align-content: row;
+    height:29rem;
+    width: 16rem;
+    margin-top: 0.5rem;
 }
 
+.country{
+    margin-inline: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    padding-inline: 0.5rem;
+    border-radius: 5px;
+    border: solid 2px #005187; 
+
+}
 
 .selects{
     display: flex;
@@ -87,20 +84,19 @@
     border-top-right-radius: 10px;
     border: solid 1px transparent;
     text-align: center;
-    width: 80%;
+    width: 50%;
 }
 
 .selects:over{
     box-shadow: 10px 5px 20px 0 #005187;
     background-color: #005187;
-
 }
 
 .button{
     display:flex;
     justify-content: center;
     align-items: center;
-    color: #005187;
+
     border: .25em solid #005187;
     padding: 5px 5px;
     font-size: 30px;
@@ -109,19 +105,13 @@
     border-radius: 20px;
     outline: none;
     transition: all 0.3s;
-    margin-bottom: 2%;
 }
 
-.button:hover {
+.button:active:hover {
     transform: translate(0, 0);
     color: #84b6f4;
     background-color: #005187;
     box-shadow: 0px 0px 10px 1px #005187;
-}
-
-.button:active {
-    color: #84b6f4;
-    outline: 0;
 }
 
 .errors {
@@ -129,10 +119,67 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2px;
+    margin: 0%;
+    font-weight: 600;
 }
 
-.flag{
-    height: 100px;
-    width: 100px ;
+.titleForm{
+    margin: 0%;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+    color: #C4DAFA;
+    background-color: #005187;
+    padding: 0.5em;
+    border: 0px 0px 10px 0 rgb(255, 255, 255);
+}
+.titleFormContainer{
+    display: flex;
+    align-items: center;
+
+}
+
+.titleCountries{
+    margin: 0%;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+    color: #C4DAFA;
+    background-color: #005187;
+    padding: 0.5em;
+    border: 0px 0px 10px 0 rgb(255, 255, 255);
+}
+
+.titleCountriesContainer{
+    display: flex;
+    align-items: center;
+
+}
+
+label{
+    margin-inline-start: 25%;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.delete{
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: solid 1px transparent;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.delete:hover{
+    background-color: rgba(255, 0, 0, 0.776);
+    border: solid 1px white;
+}
+.p{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    font-weight: 600;
 }

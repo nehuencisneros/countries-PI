@@ -23,9 +23,6 @@ const CardContainer = () => {
     
     const numerito = Math.ceil(cantCountries/countriesPage)
 
-    console.log(numerito)
-
-
     const arrayPages = PageNumbers(countriesPage, cantCountries)
     const cantPages = arrayPages.length
 

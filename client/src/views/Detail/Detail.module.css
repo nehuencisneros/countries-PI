@@ -43,6 +43,7 @@
 .activityContainer{
     justify-content: space-around;
     background-image: url("./activities-background.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     background-color:  #4d82bc;
     flex-direction: column;
@@ -78,6 +79,7 @@
     grid-column-gap: 20px;
     grid-row-gap: 20px;
 }
+
 
 .container{
     background-color: #C4DAFA;
