@@ -30,3 +30,25 @@
     border: 6px solid transparent;
     background: #84b6f4;
 }
+
+@media (max-width: 950px) {
+    .selects{
+        width: 10em;
+        font-size: 17px;
+    }
+    .selectAlphaPopu {
+        width: 11em;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px){
+    .selects{
+        font-size: 12px;
+        width: 7em;
+    }
+    .selectAlphaPopu {
+        width: 7em;
+        font-size: 8px;
+    }
+}

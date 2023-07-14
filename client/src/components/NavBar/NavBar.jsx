@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import style from "./NavBar.module.css"
 import SearchBar from "../SearchBar/SearchBar"
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const NavBar = () => {
 
@@ -9,7 +8,7 @@ const NavBar = () => {
 
     return (
         <nav className={style.mainContainer}>
-            
+
             <Link to="/home">
                 <button className={style.botonHome}>Home</button>
             </Link>

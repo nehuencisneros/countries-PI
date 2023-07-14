@@ -45,14 +45,16 @@ const Detail = () => {
                 <div className={style.allContainer}>
                     { state.country !== "por favor igrese un id de 3 caracteres" ?
                         <div className={style.detailContainer}>
-                            <h1>{state.country.id}</h1>
-                            <img className={style.flag} src={state.country.flag} alt={state.country.name}/>
-                            <h1>Name: {state.country.name}</h1>
-                            <h2>Capital: {state.country.capital}</h2>
-                            <h2>Continent: {state.country.continent}</h2>
-                            <h2>Subregion: {state.country.subregion}</h2>
-                            <h3>Area: {state.country.area}</h3>
-                            <h3>Population: {state.country.population}</h3>
+                            <div style={{backgroundColor: "#005187", color: "white", border: "solid 1px white", borderRadius:"5px", marginBottom: "2rem"}}>
+                                <h2>{state.country.id}</h2>
+                                <img className={style.flag} src={state.country.flag} alt={state.country.name}/>
+                                <h2>Name: {state.country.name}</h2>
+                                <h3>Capital: {state.country.capital}</h3>
+                            </div>
+                            <h3>Continent: {state.country.continent}</h3>
+                            <h3>Subregion: {state.country.subregion}</h3>
+                            <h4>Area: {state.country.area}</h4>
+                            <h4>Population: {state.country.population}</h4>
                         </div>
                         :
                         <div>
@@ -81,7 +83,7 @@ const Detail = () => {
                                     {form.map((element, index) => {
                                         return (
                                             <div className={style.container} key={index}>
-                                                <Link to="/form" style={{ textDecoration: 'none' }}>
+                                                <Link to={`/form/${state.country.name}`} style={{ textDecoration: 'none' }}>
                                                     <p className={style.add}>{element.name} +</p>
                                                 </Link>
                                             </div>
@@ -93,7 +95,7 @@ const Detail = () => {
                                     {form.map((element, index) => {
                                         return (
                                             <div className={style.container} key={index}>
-                                                <Link to={`/form/${countryForm}`} style={{ textDecoration: 'none' }}>
+                                                <Link to={`/form/${state.country.name}`} style={{ textDecoration: 'none' }}>
                                                     <p className={style.add}>{element.name} +</p>
                                                 </Link>
                                             </div>

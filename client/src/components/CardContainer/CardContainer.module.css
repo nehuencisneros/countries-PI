@@ -2,10 +2,9 @@
     background-color: #005187;
     display: flex;    
     gap: 3rem;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 3em;
-    padding-bottom: 3em;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     justify-content:center;
     flex-wrap: wrap;
     grid-template-columns: 4
@@ -17,15 +16,16 @@
     gap: 3rem;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     justify-content:center;
     flex-wrap: wrap;
     height: 73vh;
 }
 
 .containerCard{
-    background-color:#84b6f4
+    background-color:#84b6f4;
+    width: 100%;
 }
 
 .filters{

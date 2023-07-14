@@ -13,7 +13,7 @@ const Filters = () => {
                     <Continents/>
                 </div>
 
-                <div className={style.continents}>
+                <div className={style.activities}>
                     <Activities/>
                 </div>
 

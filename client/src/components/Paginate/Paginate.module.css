@@ -1,18 +1,21 @@
 .paginate{
     display: flex;
     justify-content:center;
-    align-items: flex-end;
     padding-bottom: 15px;
-    background-color:#84b6f4
+    background-color:#84b6f4;
+    border: 1px solid black;
+    margin-inline: 0px;
+    padding-inline: 0px;
 }
 
 .botoncito{
-    height: 2em;
-    width: 2em;
+    height: 1.8rem;
+    width: 2rem;
     color:black;
     background-color:  #c4dafa;
     float: left;
     border: 1px solid transparent;
+    text-align: center;
 }
 
 .botoncito:hover{
@@ -21,8 +24,8 @@
 }
 
 .botoncitoSelected{
-    height: 2em;
-    width: 2em;
+    height: 1.8rem;
+    width: 2rem;
     border-radius: 15%;
     color:white;
     background-color: #005187;
@@ -30,3 +33,28 @@
     border: 1px solid #005187;
 }
 
+@media (max-width: 950px) {
+    .botoncito{
+        height: 1.2rem;
+        width: 1.2rem;
+        font-size: 9px;
+    }
+    .botoncitoSelected{
+        height: 1.2rem;
+        width: 1.2rem;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 550px) {
+    .botoncito{
+        height: 0.7rem;
+        width: 0.7rem;
+        font-size: 6px;
+    }
+    .botoncitoSelected{
+        height: 0.7rem;
+        width: 0.7rem;
+        font-size: 6px;
+    }
+}
