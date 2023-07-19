@@ -6,7 +6,6 @@
     padding-block: 0.5rem;
 }
 
-
 .orders{
     display: flex;
     flex-direction: column;
@@ -17,8 +16,8 @@
 .continents{
     justify-content: space-around;
     display: flex;
-
 }
+
 .activities{
     justify-content: space-around;
     display: flex;

@@ -4,7 +4,7 @@
     background-color: #4d82bc;
     justify-content: space-around;
     height: 3em;
-    align-items:center;
+    align-items: center;
     width: 100%;
 }
 
@@ -56,13 +56,7 @@
     border: 2px solid white;
 }
 
-.nav-links{
-    position: relative;
-}
 
-.nav-toggle{
-    display:none;
-}
 
 @media (max-width: 950px) {
     .botonHome{
@@ -98,5 +92,24 @@
     }
     .mainContainer{
         height: 2em;
+        padding: 0px;
     }
+}
+
+@media (max-width: 370px) {
+    .botonHome{
+        border-radius: 4px;
+        font-size: 8px;
+        height: 1rem;
+        width: 4rem;
+        font-weight: 400;
+    }
+    .botonForm{
+        border-radius: 4px;
+        font-size: 7px;
+        height: 1rem;
+        width: 4rem;
+        font-weight:400;
+    }
+
 }

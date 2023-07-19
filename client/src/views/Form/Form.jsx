@@ -25,13 +25,16 @@ const Form = () => {
         flag: ""
     })
 
+    console.log(newActivity.country[0]);
 
     useEffect(() => {
         dispatch(getAllCountries())
-        setNewActivity({
-            ...newActivity,
-            country: [...newActivity.country, idCountry]
-        })  
+        if(idCountry){
+            setNewActivity({
+                ...newActivity,
+                country: [...newActivity.country, idCountry]
+            })  
+        }
     },[dispatch])
 
     const disabled = (newActivity.name === "" || newActivity.difficulty === "" || newActivity.duration === "" || newActivity.season === "" || newActivity.country.length === 0)
@@ -78,6 +81,7 @@ const Form = () => {
             country: newActivity.country.filter((country) => country !== event.target.value)
         }))
     }
+
 
 
     const handlerSubmit = (event) => {

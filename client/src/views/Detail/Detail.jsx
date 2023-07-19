@@ -70,11 +70,11 @@ const Detail = () => {
                                     {activityCountry.map(actividad => {
                                             return(
                                                 <div className={style.container} key={actividad.id}>
-                                                    <h2 className={style.title}>Activity</h2>
-                                                    <h4>Name: "{actividad.name}"</h4>
-                                                    <h4>Duration: {actividad.duration} hs</h4>
-                                                    <h4>Difficulty:  {actividad.difficulty}</h4>
-                                                    <h4>Season: {actividad.season}</h4>
+                                                    <h3 className={style.title}>Activity</h3>
+                                                    <h5>Name: "{actividad.name}"</h5>
+                                                    <h5>Duration: {actividad.duration} hs</h5>
+                                                    <h5>Difficulty:  {actividad.difficulty}</h5>
+                                                    <h5>Season: {actividad.season}</h5>
                                                 </div>
                                                 
                                             )                          
