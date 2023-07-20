@@ -71,10 +71,10 @@ const Detail = () => {
                                             return(
                                                 <div className={style.container} key={actividad.id}>
                                                     <h3 className={style.title}>Activity</h3>
-                                                    <h5>Name: "{actividad.name}"</h5>
-                                                    <h5>Duration: {actividad.duration} hs</h5>
-                                                    <h5>Difficulty:  {actividad.difficulty}</h5>
-                                                    <h5>Season: {actividad.season}</h5>
+                                                    <h5><p1>Name:</p1><p2> "{actividad.name}"</p2></h5>
+                                                    <h5><p1>Duration:</p1><p2> {actividad.duration} hs</p2></h5>
+                                                    <h5><p1>Difficulty:</p1><p2>{actividad.difficulty}</p2>  </h5>
+                                                    <h5><p1>Season:</p1><p2>{actividad.season}</p2> </h5>
                                                 </div>
                                                 
                                             )                          

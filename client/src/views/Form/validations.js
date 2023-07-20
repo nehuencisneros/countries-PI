@@ -7,7 +7,9 @@ const Validation = (newActivity) => {
         errors.name = "Please, complete the activity's name";
     } else if(!regex.test(newActivity.name)){
         errors.name = "The name field only accepts letters an blank spaces";
-    }
+    } else if (newActivity.name.length > 30){
+        errors.name = "The activity name is longer than expected";
+    } 
 
     if(!newActivity.difficulty){
         errors.difficulty = "Please, choose the activity's difficulty";
