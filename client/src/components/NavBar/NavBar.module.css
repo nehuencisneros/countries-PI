@@ -80,7 +80,7 @@
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 540px){
     .botonHome{
         border-radius: 4px;
         font-size: 8px;

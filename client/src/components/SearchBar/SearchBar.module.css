@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
 .inputSearchBar {
+    font-family: 'Roboto Condensed', sans-serif;
     height: 2rem;
     width: 20em;
     border-radius: 5px;
@@ -21,7 +24,7 @@
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 540px){
     .inputSearchBar{
         width: 8em;
         font-size: 10px;

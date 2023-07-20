@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
 .add{
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 2rem;
     font-weight: bold;
-    top: 50%;
-    left: 50%;
     text-align: center;
 }
 
@@ -45,7 +46,8 @@
     background-image: url("./activities-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color:  #4d82bc;
+    background-position: center; /* Centramos la imagen de fondo */
+    background-color: #4d82bc;
     flex-direction: column;
     align-items: center;
     height: 100%;
@@ -55,6 +57,14 @@
     border: solid 10px #C4DAFA; 
     box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
     grid-template-rows: 5% 95%
+}
+
+.flagConteiner{
+    background-color: #005187;
+    color: white;
+    border: solid 1px white;
+    border-radius: 5px;
+    margin-bottom: 2rem;
 }
 
 .titleContainerActivities{
@@ -80,7 +90,6 @@
     grid-row-gap: 20px;
 }
 
-
 .container{
     background-color: #C4DAFA;
     opacity: 0.8;
@@ -89,11 +98,28 @@
     border-bottom-left-radius: 15px;
     box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
     padding: 5%;
-    height: 75%;
+    height: 10rem;
     text-decoration: none;
     outline: none;
 }
-.containerSummer h5{
+
+.containerAct{
+    background-color: #C4DAFA;
+    opacity: 0.8;
+    border: solid 10px #4d82bc; 
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 0px 0px 10px 0 rgb(255, 255, 255);
+    padding: 5%;
+    height: 10rem;
+    text-decoration: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container h5{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     text-decoration: none;
@@ -121,6 +147,9 @@
 }
 
 @media (max-width: 950px){
+    .allContainer{
+        padding-top: 1rem;
+    }
     .detailContainer h4{
         font-size: 10px;
     }
@@ -133,17 +162,19 @@
         font-size: 17px;
     }
     .add{
-        margin-top: 40%;
         font-size: 1rem;
     }
     .flag{
         margin-inline: 1rem;
     }
     .detailContainer{
-    border: solid 4px #C4DAFA; 
+    border: solid 5px #C4DAFA; 
     }
     .container{
-        border: solid 4px #4d82bc; 
+        border: solid 5px #4d82bc; 
+    }
+    .containerAct{
+        border: solid 5px #4d82bc;
     }
     .activityContainer{
         border: solid 4px #C4DAFA; 
@@ -158,5 +189,58 @@
     .container h5{
         margin-block: 0.5rem;
         font-size: 10px;
+    }
+}
+
+@media (max-width: 600px){
+    .allContainer{
+    height: 100%;
+    align-items: normal;
+    grid-template-columns: 40% 50%;
+    }
+    .detailContainer{
+    height: 23rem;
+    }
+    .activityDetail{
+        grid-template-columns: auto;
+        margin: 0;
+    }
+    .container{
+        height: 8rem;
+    }
+    .containerAct{
+        height: 8rem;
+    }
+    .flagConteiner{
+        margin-bottom: 1.5rem;
+    }
+}
+@media (max-width: 370px){
+    .flagConteiner{
+        margin-bottom: 1rem;
+    }
+    .allContainer{
+        height: 100%;
+        align-items: normal;
+        grid-template-columns: auto;
+        padding-top:1rem;
+    }
+    .detailContainer{
+        height: 22rem;
+        margin-inline: 1rem;
+        margin-bottom: 1rem;
+    }
+    .activityContainer{
+        margin-inline: 1rem;
+    }
+    .activityDetail{
+        grid-template-columns: auto;
+        margin: 0;
+    }
+    .container{
+        height: 7rem;
+    }
+    .containerAct{
+        height: 7rem;
     }
 }

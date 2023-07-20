@@ -2,9 +2,9 @@
     background-color: #005187;
     display: flex;    
     gap: 3rem;
-
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    height: 100%;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
     justify-content:center;
     flex-wrap: wrap;
     grid-template-columns: 4
@@ -16,11 +16,11 @@
     gap: 3rem;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
     justify-content:center;
     flex-wrap: wrap;
-    height: 73vh;
+    height: 100%;
 }
 
 .containerCard{

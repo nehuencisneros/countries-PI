@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
 .form{
     padding-block: 5%;
     padding-inline: 10%;
@@ -6,7 +8,6 @@
     background-color: #005187;
     display: grid;
     grid-template-columns: 60% 40%;
-
 }
 
 .formContainer{
@@ -51,7 +52,6 @@
 }
 
 .buttonContainer{
-
     height: 4rem;
 }
 
@@ -74,6 +74,7 @@
 }
 
 .selects{
+    font-family: 'Roboto Condensed', sans-serif;
     display: flex;
     align-self: center;
     align-items: center;
@@ -92,6 +93,7 @@
 }
 
 .button{
+    font-family: 'Roboto Condensed', sans-serif;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -134,7 +136,6 @@
 .titleFormContainer{
     display: flex;
     align-items: center;
-
 }
 
 
@@ -183,6 +184,11 @@ label{
     font-weight: 600;
 }
 
+.countriesSelect{
+    margin-left: 50%;
+    width: 100%;
+}
+
 @media (max-width: 950px) {
     .country h4 {
         font-size: 12px;
@@ -199,7 +205,7 @@ label{
     }
     .selects{
         font-size: 15px;
-        width: 50%;
+        width: 60%;
     }
     .button{
         height: 3rem;
@@ -207,12 +213,98 @@ label{
     }
     .titleCountries{
         font-size: 18px;
+        width: 10rem;
     }
     .titleForm{
         font-size: 18px;
+        width: 10rem;
+        margin-bottom: 10%;
     }
     .countries{
+        width: 13rem;
+    }
+    .countriesSelect{
+        margin-left: 40%;
+    }
+    .form{
+        padding-inline: 5%;
+    }
+    .countriesContainer{
+        padding-top: 2%;
+        height: 33rem;
+    }
+    .formContainer{
+        padding-top: 2%;
+        height: 33rem;
+    }
+}
 
-        width: 11rem;
+@media (max-width: 600px){
+    .country h4 {
+        font-size: 10px;
+    }
+    .titleCountries{
+        font-size: 14px;
+        width: 7rem;
+    }
+    .titleForm{
+        font-size: 14px;
+        width: 8rem;
+    }
+    .countries{
+        width: 10rem;
+    }
+    .selects{
+        font-size: 15px;
+        width: 70%;
+    }
+    .form{
+        padding-inline: 3%;
+    }
+    .countriesSelect{
+        margin-left: 30%;
+    }
+    .countriesContainer{
+        height: 30rem;
+    }
+    .formContainer{
+        height: 30rem;
+    }
+    .p{
+        font-size: 9px;
+    }
+    .delete{
+        font-size: 6px;
+        font-weight: 600;
+        margin-left: 0rem;
+    }
+}
+@media (max-width: 440px){
+    .form{
+        padding-inline: 5%;
+        display: grid; 
+        grid-template-columns: 1fr;
+    }
+    .country h4 {
+        font-size: 10px;
+    }
+    .titleCountries{
+        font-size: 14px;
+        width: 7rem;
+    }
+    .titleForm{
+        font-size: 14px;
+        width: 8rem;
+    }
+    .countries{
+        width: 10rem;
+    }
+    .countriesContainer{
+        margin-left: 0%;
+        margin-top: 1rem;
+    }
+    .formContainer{
+        margin-right: 0%;
+        height: 25rem;
     }
 }

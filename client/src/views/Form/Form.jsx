@@ -167,7 +167,7 @@ const Form = () => {
                         {errors.season && <p className={style.errors}>{errors.season}</p>}
 
                         {newActivity.country.length !== 5  && 
-                        <div style={{marginLeft: "50%",width:"100%"}}>    
+                        <div className={style.countriesSelect}>    
                         <label style={{marginInlineStart: 0}}>Country:</label>
                             <select className={style.selects} onChange={handlerCountrySelect} value="country">
                                 <option value="">Select country...</option>

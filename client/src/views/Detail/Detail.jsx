@@ -45,7 +45,7 @@ const Detail = () => {
                 <div className={style.allContainer}>
                     { state.country !== "por favor igrese un id de 3 caracteres" ?
                         <div className={style.detailContainer}>
-                            <div style={{backgroundColor: "#005187", color: "white", border: "solid 1px white", borderRadius:"5px", marginBottom: "2rem"}}>
+                            <div className={style.flagConteiner}>
                                 <h2>{state.country.id}</h2>
                                 <img className={style.flag} src={state.country.flag} alt={state.country.name}/>
                                 <h2>Name: {state.country.name}</h2>
@@ -82,7 +82,7 @@ const Detail = () => {
                                     }
                                     {form.map((element, index) => {
                                         return (
-                                            <div className={style.container} key={index}>
+                                            <div className={style.containerAct} key={index}>
                                                 <Link to={`/form/${state.country.name}`} style={{ textDecoration: 'none' }}>
                                                     <p className={style.add}>{element.name} +</p>
                                                 </Link>
@@ -94,7 +94,7 @@ const Detail = () => {
                                 <div className={style.activityDetail}>
                                     {form.map((element, index) => {
                                         return (
-                                            <div className={style.container} key={index}>
+                                            <div className={style.containerAct} key={index}>
                                                 <Link to={`/form/${state.country.name}`} style={{ textDecoration: 'none' }}>
                                                     <p className={style.add}>{element.name} +</p>
                                                 </Link>

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 .selects {
     font-family: 'Roboto Condensed', sans-serif;
-
     background-color: #c4dafa;
     width: 15em;
     height: 2em;
@@ -14,7 +13,6 @@
 
 .selectAlphaPopu {
     font-family: 'Roboto Condensed', sans-serif;
-
     background-color: #c4dafa;
     width: 20em;
     height: 2em;
@@ -47,10 +45,10 @@
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 540px){
     .selects{
         font-size: 12px;
-        width: 7em;
+        width: 8em;
     }
     .selectAlphaPopu {
         width: 9em;
